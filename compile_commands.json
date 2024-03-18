@@ -1,0 +1,379 @@
+[
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/gemm.o ./src/gemm.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/gemm.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/utils.o ./src/utils.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/utils.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/cuda.o ./src/cuda.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/cuda.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/deconvolutional_layer.o ./src/deconvolutional_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/deconvolutional_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/convolutional_layer.o ./src/convolutional_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/convolutional_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/list.o ./src/list.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/list.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/image.o ./src/image.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/image.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/activations.o ./src/activations.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/activations.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/im2col.o ./src/im2col.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/im2col.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/col2im.o ./src/col2im.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/col2im.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/blas.o ./src/blas.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/blas.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/crop_layer.o ./src/crop_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/crop_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/dropout_layer.o ./src/dropout_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/dropout_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/maxpool_layer.o ./src/maxpool_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/maxpool_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/softmax_layer.o ./src/softmax_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/softmax_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/data.o ./src/data.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/data.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/matrix.o ./src/matrix.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/matrix.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/network.o ./src/network.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/network.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/connected_layer.o ./src/connected_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/connected_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/cost_layer.o ./src/cost_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/cost_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/parser.o ./src/parser.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/parser.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/option_list.o ./src/option_list.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/option_list.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/detection_layer.o ./src/detection_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/detection_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/route_layer.o ./src/route_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/route_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/upsample_layer.o ./src/upsample_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/upsample_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/box.o ./src/box.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/box.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/normalization_layer.o ./src/normalization_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/normalization_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/avgpool_layer.o ./src/avgpool_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/avgpool_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/layer.o ./src/layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/local_layer.o ./src/local_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/local_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/shortcut_layer.o ./src/shortcut_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/shortcut_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/logistic_layer.o ./src/logistic_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/logistic_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/activation_layer.o ./src/activation_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/activation_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/rnn_layer.o ./src/rnn_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/rnn_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/gru_layer.o ./src/gru_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/gru_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/crnn_layer.o ./src/crnn_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/crnn_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/demo.o ./src/demo.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/demo.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/batchnorm_layer.o ./src/batchnorm_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/batchnorm_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/region_layer.o ./src/region_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/region_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/reorg_layer.o ./src/reorg_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/reorg_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/tree.o ./src/tree.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/tree.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/lstm_layer.o ./src/lstm_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/lstm_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/l2norm_layer.o ./src/l2norm_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/l2norm_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/yolo_layer.o ./src/yolo_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/yolo_layer.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/iseg_layer.o ./src/iseg_layer.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/iseg_layer.c"
+    },
+    {
+        "command": "c++ -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/image_opencv.o ./src/image_opencv.cpp",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/image_opencv.cpp"
+    },
+    {
+        "command": "ar rcs libdarknet.a obj/gemm.o obj/utils.o obj/cuda.o obj/deconvolutional_layer.o obj/convolutional_layer.o obj/list.o obj/image.o obj/activations.o obj/im2col.o obj/col2im.o obj/blas.o obj/crop_layer.o obj/dropout_layer.o obj/maxpool_layer.o obj/softmax_layer.o obj/data.o obj/matrix.o obj/network.o obj/connected_layer.o obj/cost_layer.o obj/parser.o obj/option_list.o obj/detection_layer.o obj/route_layer.o obj/upsample_layer.o obj/box.o obj/normalization_layer.o obj/avgpool_layer.o obj/layer.o obj/local_layer.o obj/shortcut_layer.o obj/logistic_layer.o obj/activation_layer.o obj/rnn_layer.o obj/gru_layer.o obj/crnn_layer.o obj/demo.o obj/batchnorm_layer.o obj/region_layer.o obj/reorg_layer.o obj/tree.o obj/lstm_layer.o obj/l2norm_layer.o obj/yolo_layer.o obj/iseg_layer.o obj/image_opencv.o obj/convolutional_kernels.o obj/deconvolutional_kernels.o obj/activation_kernels.o obj/im2col_kernels.o obj/col2im_kernels.o obj/blas_kernels.o obj/crop_layer_kernels.o obj/dropout_layer_kernels.o obj/maxpool_layer_kernels.o obj/avgpool_layer_kernels.o",
+        "directory": "/export/users/zhaojiam/tmp/darknet"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/captcha.o ./examples/captcha.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/captcha.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/lsd.o ./examples/lsd.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/lsd.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/super.o ./examples/super.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/super.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/art.o ./examples/art.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/art.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/tag.o ./examples/tag.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/tag.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/cifar.o ./examples/cifar.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/cifar.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/go.o ./examples/go.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/go.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/rnn.o ./examples/rnn.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/rnn.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/segmenter.o ./examples/segmenter.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/segmenter.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/regressor.o ./examples/regressor.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/regressor.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/classifier.o ./examples/classifier.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/classifier.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/coco.o ./examples/coco.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/coco.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/yolo.o ./examples/yolo.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/yolo.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/detector.o ./examples/detector.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/detector.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/nightmare.o ./examples/nightmare.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/nightmare.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/instance-segmenter.o ./examples/instance-segmenter.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/instance-segmenter.c"
+    },
+    {
+        "command": "cc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/darknet.o ./examples/darknet.c",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/examples/darknet.c"
+    },
+    {
+        "command": "nvcc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/convolutional_kernels.o -D__CUDACC__=1 ./src/convolutional_kernels.cu",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/convolutional_kernels.cu"
+    },
+    {
+        "command": "nvcc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/deconvolutional_kernels.o -D__CUDACC__=1 ./src/deconvolutional_kernels.cu",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/deconvolutional_kernels.cu"
+    },
+    {
+        "command": "nvcc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/activation_kernels.o -D__CUDACC__=1 ./src/activation_kernels.cu",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/activation_kernels.cu"
+    },
+    {
+        "command": "nvcc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/im2col_kernels.o -D__CUDACC__=1 ./src/im2col_kernels.cu",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/im2col_kernels.cu"
+    },
+    {
+        "command": "nvcc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/col2im_kernels.o -D__CUDACC__=1 ./src/col2im_kernels.cu",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/col2im_kernels.cu"
+    },
+    {
+        "command": "nvcc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/blas_kernels.o -D__CUDACC__=1 ./src/blas_kernels.cu",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/blas_kernels.cu"
+    },
+    {
+        "command": "nvcc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/crop_layer_kernels.o -D__CUDACC__=1 ./src/crop_layer_kernels.cu",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/crop_layer_kernels.cu"
+    },
+    {
+        "command": "nvcc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/dropout_layer_kernels.o -D__CUDACC__=1 ./src/dropout_layer_kernels.cu",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/dropout_layer_kernels.cu"
+    },
+    {
+        "command": "nvcc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/maxpool_layer_kernels.o -D__CUDACC__=1 ./src/maxpool_layer_kernels.cu",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/maxpool_layer_kernels.cu"
+    },
+    {
+        "command": "nvcc -c -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -o obj/avgpool_layer_kernels.o -D__CUDACC__=1 ./src/avgpool_layer_kernels.cu",
+        "directory": "/export/users/zhaojiam/tmp/darknet",
+        "file": "/export/users/zhaojiam/tmp/darknet/src/avgpool_layer_kernels.cu"
+    },
+    {
+        "command": "ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9uqTr6.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -melf_x86_64 --hash-style=gnu --as-needed -shared -o libdarknet.so /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o obj/gemm.o obj/utils.o obj/cuda.o obj/deconvolutional_layer.o obj/convolutional_layer.o obj/list.o obj/image.o obj/activations.o obj/im2col.o obj/col2im.o obj/blas.o obj/crop_layer.o obj/dropout_layer.o obj/maxpool_layer.o obj/softmax_layer.o obj/data.o obj/matrix.o obj/network.o obj/connected_layer.o obj/cost_layer.o obj/parser.o obj/option_list.o obj/detection_layer.o obj/route_layer.o obj/upsample_layer.o obj/box.o obj/normalization_layer.o obj/avgpool_layer.o obj/layer.o obj/local_layer.o obj/shortcut_layer.o obj/logistic_layer.o obj/activation_layer.o obj/rnn_layer.o obj/gru_layer.o obj/crnn_layer.o obj/demo.o obj/batchnorm_layer.o obj/region_layer.o obj/reorg_layer.o obj/tree.o obj/lstm_layer.o obj/l2norm_layer.o obj/yolo_layer.o obj/iseg_layer.o obj/image_opencv.o obj/convolutional_kernels.o obj/deconvolutional_kernels.o obj/activation_kernels.o obj/im2col_kernels.o obj/col2im_kernels.o obj/blas_kernels.o obj/crop_layer_kernels.o obj/dropout_layer_kernels.o obj/maxpool_layer_kernels.o obj/avgpool_layer_kernels.o --push-state --as-needed --pop-state --push-state --as-needed --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtfastmath.o /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o",
+        "directory": "/export/users/zhaojiam/tmp/darknet"
+    },
+    {
+        "command": "ld -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cciTlCVQ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -melf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o darknet /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o obj/captcha.o obj/lsd.o obj/super.o obj/art.o obj/tag.o obj/cifar.o obj/go.o obj/rnn.o obj/segmenter.o obj/regressor.o obj/classifier.o obj/coco.o obj/yolo.o obj/detector.o obj/nightmare.o obj/instance-segmenter.o obj/darknet.o libdarknet.a libdarknet.a --push-state --as-needed --pop-state --push-state --as-needed --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtfastmath.o /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o",
+        "directory": "/export/users/zhaojiam/tmp/darknet"
+    }
+]
