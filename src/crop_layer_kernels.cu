@@ -5,7 +5,7 @@
 extern "C" {
 #include "crop_layer.h"
 #include "utils.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 #include "image.h"
 }
 

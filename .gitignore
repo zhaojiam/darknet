@@ -26,5 +26,7 @@ Icon?
 Thumbs.db
 *.swp
 
-**.a
 **.so
+**.a
+*.weights
+**/.vscode/

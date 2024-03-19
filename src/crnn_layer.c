@@ -1,7 +1,7 @@
 #include "crnn_layer.h"
 #include "convolutional_layer.h"
 #include "utils.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 #include "blas.h"
 #include "gemm.h"
 

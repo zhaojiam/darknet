@@ -1,6 +1,6 @@
 #include "cost_layer.h"
 #include "utils.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 #include "blas.h"
 #include <math.h>
 #include <string.h>
