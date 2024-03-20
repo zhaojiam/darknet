@@ -1,5 +1,6 @@
 #include <math.h>
 #include "darknet.h"
+#include <time.h>
 
 /*
 void train_lsd3(char *fcfg, char *fweight, char *gcfg, char *gweight, char *acfg, char *aweight, int clear)
@@ -914,8 +915,8 @@ void train_colorizer(char *cfg, char *weight, char *acfg, char *aweight, int cle
     //int y_size = x_size;
     net->delta = 0;
     net->train = 1;
-    float *pixs = calloc(x_size, sizeof(float));
-    float *graypixs = calloc(x_size, sizeof(float));
+    float *pixs = (float *)calloc(x_size, sizeof(float));
+    float *graypixs = (float *)calloc(x_size, sizeof(float));
     //float *y = calloc(y_size, sizeof(float));
 
     //int ay_size = anet->outputs*anet->batch;

@@ -1,4 +1,5 @@
 #include "darknet.h"
+#include <time.h>
 
 void train_super(char *cfgfile, char *weightfile, int clear)
 {

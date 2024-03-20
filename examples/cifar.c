@@ -1,4 +1,5 @@
 #include "darknet.h"
+#include <time.h>
 
 void train_cifar(char *cfgfile, char *weightfile)
 {

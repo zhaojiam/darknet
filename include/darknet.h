@@ -1,18 +1,19 @@
 #ifndef DARKNET_API
 #define DARKNET_API
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <pthread.h>
+#include <dpct/rng_utils.hpp>
+
+#include <dpct/blas_utils.hpp>
 
 #ifdef GPU
     #define BLOCK 512
 
-    #include "cuda_runtime.h"
-    #include "curand.h"
-    #include "cublas_v2.h"
-
-    #ifdef CUDNN
+#ifdef CUDNN
     #include "cudnn.h"
     #endif
 #endif
@@ -24,14 +25,14 @@ extern "C" {
 #define SECRET_NUM -1234
 extern int gpu_index;
 
-typedef struct{
+typedef struct dpct_type_155176 {
     int classes;
     char **names;
 } metadata;
 
 metadata get_metadata(char *file);
 
-typedef struct{
+typedef struct dpct_type_111383 {
     int *leaf;
     int n;
     int *parent;
@@ -94,7 +95,7 @@ typedef enum{
     SSE, MASKED, L1, SEG, SMOOTH,WGAN
 } COST_TYPE;
 
-typedef struct{
+typedef struct dpct_type_585124 {
     int batch;
     float learning_rate;
     float momentum;
@@ -495,7 +496,7 @@ typedef struct network{
 
 } network;
 
-typedef struct {
+typedef struct dpct_type_685556 {
     int w;
     int h;
     float scale;
@@ -505,14 +506,14 @@ typedef struct {
     float aspect;
 } augment_args;
 
-typedef struct {
+typedef struct dpct_type_675978 {
     int w;
     int h;
     int c;
     float *data;
 } image;
 
-typedef struct{
+typedef struct dpct_type_109925 {
     float x, y, w, h;
 } box;
 
@@ -530,8 +531,7 @@ typedef struct matrix{
     float **vals;
 } matrix;
 
-
-typedef struct{
+typedef struct dpct_type_856644 {
     int w, h;
     matrix X;
     matrix y;
@@ -577,7 +577,7 @@ typedef struct load_args{
     tree *hierarchy;
 } load_args;
 
-typedef struct{
+typedef struct dpct_type_150054 {
     int id;
     float x,y,w,h;
     float left, right, top, bottom;
