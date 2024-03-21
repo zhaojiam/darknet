@@ -1,14 +1,18 @@
 #ifndef DARKNET_API
 #define DARKNET_API
-#include <sycl/sycl.hpp>
-#include <dpct/dpct.hpp>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <pthread.h>
-#include <dpct/rng_utils.hpp>
 
+
+#ifdef __cplusplus
+// SYCL: Use these header files only in C++
+#include <sycl/sycl.hpp>
+#include <dpct/dpct.hpp>
+#include <dpct/rng_utils.hpp>
 #include <dpct/blas_utils.hpp>
+#endif
 
 #ifdef GPU
     #define BLOCK 512

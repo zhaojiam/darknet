@@ -3,7 +3,10 @@
 #include "darknet.h"
 #include "darknet_cuda.h"
 #include "math.h"
+
+#ifdef __cplusplus
 #include <cmath>
+#endif
 
 ACTIVATION get_activation(char *s);
 

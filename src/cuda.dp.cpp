@@ -1,4 +1,4 @@
-int gpu_index = 0;
+extern "C" int gpu_index = 0;
 
 #ifdef GPU
 
