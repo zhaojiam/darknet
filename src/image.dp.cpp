@@ -1,9 +1,11 @@
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "image.h"
+extern "C" {
 #include "utils.h"
 #include "blas.h"
 #include "darknet_cuda.h"
+}
 #include <stdio.h>
 #include <math.h>
 
