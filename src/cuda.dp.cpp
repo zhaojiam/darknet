@@ -97,7 +97,9 @@ sycl::range<3> cuda_gridsize(size_t n) {
         x = ceil(sqrt(k));
         y = (n-1)/(x*BLOCK) + 1;
     }
-    sycl::range<3> d = {x, y, 1};
+    // sycl::range<3> d = {x, y, 1};
+    // SYCL: It's a bug after porting.
+    sycl::range<3> d = {1, y, x};
     //printf("%ld %ld %ld %ld\n", n, x, y, x*y*BLOCK);
     return d;
 }
