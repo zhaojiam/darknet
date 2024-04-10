@@ -18,3 +18,7 @@ void INTERCEPT(float *devPtr, char *msgStr, int numOfVar, int offset)
     printf("\n----------------------\n");                       
 }                                                               
 
+
+void sync_current_device() {
+    dpct::get_current_device().queues_wait_and_throw();
+}

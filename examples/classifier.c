@@ -4,6 +4,8 @@
 #include <assert.h>
 #include <time.h>
 
+#include "debug.h"
+
 float *get_regression_values(char **labels, int n)
 {
     float *v = (float *)calloc(n, sizeof(float));
@@ -605,6 +607,29 @@ void predict_classifier(char *datacfg, char *cfgfile, char *weightfile, char *fi
             //else printf("%s: %f\n",names[index], predictions[index]);
             printf("%5.2f%%: %s\n", predictions[index]*100, names[index]);
         }
+
+        // TODO: test classifier latency. 
+        // warmup 
+        for (int i = 0; i < 10; i++) {
+            float *predictions = network_predict(net, X);
+        }
+
+        long long start, end;
+        struct timeval timecheck;
+        gettimeofday(&timecheck, NULL);
+        sync_current_device();
+        start = (long)timecheck.tv_sec * 1000 + (long)timecheck.tv_usec / 1000;
+
+        for (int i = 0; i < 100; i++) {
+            float *predictions = network_predict(net, X);
+        }
+        
+        sync_current_device();
+        gettimeofday(&timecheck, NULL);
+        end = (long)timecheck.tv_sec * 1000 + (long)timecheck.tv_usec / 1000;
+        // printf("%lld milliseconds elapsed\n", (end - start));
+        printf("Average inference latency is %lld milliseconds.\n", (end - start)/100);
+
         if(r.data != im.data) free_image(r);
         free_image(im);
         if (filename) break;
