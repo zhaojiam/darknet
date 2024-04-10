@@ -30,3 +30,4 @@ Thumbs.db
 **.a
 *.weights
 **/.vscode/
+dpct*
