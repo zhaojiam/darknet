@@ -1,3 +1,4 @@
+#include <dpct/dnnl_utils.hpp>
 #include "reorg_layer.h"
 #include "darknet_cuda.h"
 #include "blas.h"
@@ -40,8 +41,8 @@ layer make_reorg_layer(int batch, int w, int h, int c, int stride, int reverse, 
         fprintf(stderr, "reorg              /%2d  %4d x%4d x%4d   ->  %4d x%4d x%4d\n",  stride, w, h, c, l.out_w, l.out_h, l.out_c);
     }
     int output_size = l.outputs * batch;
-    l.output =  calloc(output_size, sizeof(float));
-    l.delta =   calloc(output_size, sizeof(float));
+    l.output = (float *)calloc(output_size, sizeof(float));
+    l.delta = (float *)calloc(output_size, sizeof(float));
 
     l.forward = forward_reorg_layer;
     l.backward = backward_reorg_layer;
@@ -77,8 +78,8 @@ void resize_reorg_layer(layer *l, int w, int h)
     l->inputs = l->outputs;
     int output_size = l->outputs * l->batch;
 
-    l->output = realloc(l->output, output_size * sizeof(float));
-    l->delta = realloc(l->delta, output_size * sizeof(float));
+    l->output = (float *)realloc(l->output, output_size * sizeof(float));
+    l->delta = (float *)realloc(l->delta, output_size * sizeof(float));
 
 #ifdef GPU
     cuda_free(l->output_gpu);

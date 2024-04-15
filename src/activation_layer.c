@@ -1,3 +1,4 @@
+#include <dpct/dnnl_utils.hpp>
 #include "activation_layer.h"
 #include "utils.h"
 #include "darknet_cuda.h"
@@ -18,8 +19,8 @@ layer make_activation_layer(int batch, int inputs, ACTIVATION activation)
     l.outputs = inputs;
     l.batch=batch;
 
-    l.output = calloc(batch*inputs, sizeof(float*));
-    l.delta = calloc(batch*inputs, sizeof(float*));
+    l.output = (float *)calloc(batch * inputs, sizeof(float *));
+    l.delta = (float *)calloc(batch * inputs, sizeof(float *));
 
     l.forward = forward_activation_layer;
     l.backward = backward_activation_layer;

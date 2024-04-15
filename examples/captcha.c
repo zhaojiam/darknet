@@ -1,4 +1,6 @@
+#include <dpct/dnnl_utils.hpp>
 #include "darknet.h"
+#include <time.h>
 
 void fix_data_captcha(data d, int mask)
 {

@@ -1,6 +1,8 @@
+#include <dpct/dnnl_utils.hpp>
 #include "darknet.h"
 
 #include <stdio.h>
+#include <time.h>
 
 char *coco_classes[] = {"person","bicycle","car","motorcycle","airplane","bus","train","truck","boat","traffic light","fire hydrant","stop sign","parking meter","bench","bird","cat","dog","horse","sheep","cow","elephant","bear","zebra","giraffe","backpack","umbrella","handbag","tie","suitcase","frisbee","skis","snowboard","sports ball","kite","baseball bat","baseball glove","skateboard","surfboard","tennis racket","bottle","wine glass","cup","fork","knife","spoon","bowl","banana","apple","sandwich","orange","broccoli","carrot","hot dog","pizza","donut","cake","chair","couch","potted plant","bed","dining table","toilet","tv","laptop","mouse","remote","keyboard","cell phone","microwave","oven","toaster","sink","refrigerator","book","clock","vase","scissors","teddy bear","hair drier","toothbrush"};
 
@@ -155,11 +157,11 @@ void validate_coco(char *cfg, char *weights)
     float iou_thresh = .5;
 
     int nthreads = 8;
-    image *val = calloc(nthreads, sizeof(image));
-    image *val_resized = calloc(nthreads, sizeof(image));
-    image *buf = calloc(nthreads, sizeof(image));
-    image *buf_resized = calloc(nthreads, sizeof(image));
-    pthread_t *thr = calloc(nthreads, sizeof(pthread_t));
+    image *val = (image *)calloc(nthreads, sizeof(image));
+    image *val_resized = (image *)calloc(nthreads, sizeof(image));
+    image *buf = (image *)calloc(nthreads, sizeof(image));
+    image *buf_resized = (image *)calloc(nthreads, sizeof(image));
+    pthread_t *thr = (pthread_t *)calloc(nthreads, sizeof(pthread_t));
 
     load_args args = {0};
     args.w = net->w;
@@ -225,7 +227,7 @@ void validate_coco_recall(char *cfgfile, char *weightfile)
     int side = l.side;
 
     int j, k;
-    FILE **fps = calloc(classes, sizeof(FILE *));
+    FILE **fps = (FILE **)calloc(classes, sizeof(FILE *));
     for(j = 0; j < classes; ++j){
         char buff[1024];
         snprintf(buff, 1024, "%s%s.txt", base, coco_classes[j]);

@@ -1,4 +1,6 @@
+#include <dpct/dnnl_utils.hpp>
 #include "darknet.h"
+#include <time.h>
 
 void train_tag(char *cfgfile, char *weightfile, int clear)
 {

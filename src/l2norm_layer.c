@@ -1,3 +1,4 @@
+#include <dpct/dnnl_utils.hpp>
 #include "l2norm_layer.h"
 #include "activations.h"
 #include "blas.h"
@@ -17,9 +18,9 @@ layer make_l2norm_layer(int batch, int inputs)
     l.batch = batch;
     l.inputs = inputs;
     l.outputs = inputs;
-    l.output = calloc(inputs*batch, sizeof(float));
-    l.scales = calloc(inputs*batch, sizeof(float));
-    l.delta = calloc(inputs*batch, sizeof(float));
+    l.output = (float *)calloc(inputs * batch, sizeof(float));
+    l.scales = (float *)calloc(inputs * batch, sizeof(float));
+    l.delta = (float *)calloc(inputs * batch, sizeof(float));
 
     l.forward = forward_l2norm_layer;
     l.backward = backward_l2norm_layer;

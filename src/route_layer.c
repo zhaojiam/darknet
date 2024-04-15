@@ -1,3 +1,4 @@
+#include <dpct/dnnl_utils.hpp>
 #include "route_layer.h"
 #include "darknet_cuda.h"
 #include "blas.h"
@@ -22,8 +23,8 @@ route_layer make_route_layer(int batch, int n, int *input_layers, int *input_siz
     fprintf(stderr, "\n");
     l.outputs = outputs;
     l.inputs = outputs;
-    l.delta =  calloc(outputs*batch, sizeof(float));
-    l.output = calloc(outputs*batch, sizeof(float));;
+    l.delta = (float *)calloc(outputs * batch, sizeof(float));
+    l.output = (float *)calloc(outputs * batch, sizeof(float));;
 
     l.forward = forward_route_layer;
     l.backward = backward_route_layer;
@@ -59,8 +60,10 @@ void resize_route_layer(route_layer *l, network *net)
         }
     }
     l->inputs = l->outputs;
-    l->delta =  realloc(l->delta, l->outputs*l->batch*sizeof(float));
-    l->output = realloc(l->output, l->outputs*l->batch*sizeof(float));
+    l->delta =
+        (float *)realloc(l->delta, l->outputs * l->batch * sizeof(float));
+    l->output =
+        (float *)realloc(l->output, l->outputs * l->batch * sizeof(float));
 
 #ifdef GPU
     cuda_free(l->output_gpu);

@@ -1,3 +1,4 @@
+#include <dpct/dnnl_utils.hpp>
 #include "layer.h"
 #include "darknet_cuda.h"
 

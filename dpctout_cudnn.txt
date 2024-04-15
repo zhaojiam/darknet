@@ -1,0 +1,723 @@
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/gru_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/option_list.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/detection_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/cifar.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/nightmare.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/region_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/coco.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/crnn_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/yolo_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/tag.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/reorg_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/maxpool_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/col2im_kernels.cu
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/lstm_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/dropout_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/matrix.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/detector.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/avgpool_layer_kernels.cu
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/network.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/route_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/cost_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/upsample_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/deconvolutional_kernels.cu
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/crop_layer_kernels.cu
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/segmenter.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/lsd.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/activation_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/super.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/rnn_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/go.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/parser.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/local_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/softmax_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/gemm.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/normalization_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/captcha.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/crop_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/list.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/art.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/maxpool_layer_kernels.cu
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/classifier.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/l2norm_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/demo.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/blas.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/connected_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/utils.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/darknet.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/rnn.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/cuda.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/regressor.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/instance-segmenter.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/avgpool_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/image_opencv.cpp
+Parsing: /export/users/zhaojiam/src/darknet_dev/examples/yolo.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/activations.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/logistic_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/data.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/batchnorm_layer.c
+Parsing: /export/users/export/users/zhaojiam/src/darknet_dev/src/col2im_kernels.cu:52:5: warning: DPCT1049:0: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   52 |     col2im_gpu_kernel<<<(num_kernels+BLOCK-1)/BLOCK,
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu:25:5: warning: DPCT1049:1: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   25 |     binarize_kernel<<<cuda_gridsize(n), BLOCK>>>(x, n, binary);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu:46:5: warning: DPCT1049:2: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   46 |     binarize_input_kernel<<<cuda_gridsize(size), BLOCK>>>(input, n, size, binary);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu:69:5: warning: DPCT1049:3: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   69 |     binarize_weights_kernel<<<cuda_gridsize(n), BLOCK>>>(weights, n, size, binary);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu:175:5: warning: DPCT1049:4: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  175 |     smooth_kernel<<<cuda_gridsize(n), BLOCK>>>(l.output_gpu, n, l.w, l.h, l.c, size, rate, l.delta_gpu);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/avgpool_layer_kernels.cu:50:5: warning: DPCT1049:5: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   50 |     forward_avgpool_layer_kernel<<<cuda_gridsize(n), BLOCK>>>(n, layer.w, layer.h, layer.c, net.input_gpu, layer.output_gpu);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/avgpool_layer_kernels.cu:58:5: warning: DPCT1049:6: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   58 |     backward_avgpool_layer_kernel<<<cuda_gridsize(n), BLOCK>>>(n, layer.w, layer.h, layer.c, net.delta_gpu, layer.delta_gpu);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:26:5: warning: DPCT1049:7: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   26 |     scale_bias_kernel<<<dimGrid, dimBlock>>>(output, biases, n, size);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:52:5: warning: DPCT1049:8: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   52 |     backward_scale_kernel<<<n, BLOCK>>>(x_norm, delta, batch, n, size, scale_updates);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:73:5: warning: DPCT1049:9: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   73 |     add_bias_kernel<<<cuda_gridsize(num), BLOCK>>>(output, biases, batch, n, size);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:113:9: warning: DPCT1049:10: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  113 |         backward_bias_conn_kernel<<<cuda_gridsize(n), BLOCK>>>(bias_updates, delta, batch, n);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:115:9: warning: DPCT1049:11: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  115 |         backward_bias_kernel<<<n, BLOCK>>>(bias_updates, delta, batch, n, size);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:176:5: warning: DPCT1049:12: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  176 |     adam_kernel<<<cuda_gridsize(n), BLOCK>>>(n, x, m, v, B1, B2, rate, eps, t);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:215:5: warning: DPCT1049:13: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  215 |     normalize_delta_kernel<<<cuda_gridsize(N), BLOCK>>>(N, x, mean, variance, mean_delta, variance_delta, batch, filters, spatial, delta);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:322:5: warning: DPCT1049:14: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  322 |     mean_delta_kernel<<<cuda_gridsize(filters), BLOCK>>>(delta, variance, batch, filters, spatial, mean_delta);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:328:5: warning: DPCT1049:15: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  328 |     fast_mean_delta_kernel<<<filters, BLOCK>>>(delta, variance, batch, filters, spatial, mean_delta);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:334:5: warning: DPCT1049:16: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  334 |     fast_variance_delta_kernel<<<filters, BLOCK>>>(x, delta, mean, variance, batch, filters, spatial, variance_delta);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:468:5: warning: DPCT1049:17: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  468 |     normalize_kernel<<<cuda_gridsize(N), BLOCK>>>(N, x, mean, variance, batch, filters, spatial);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:497:5: warning: DPCT1049:18: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  497 |     l2norm_kernel<<<cuda_gridsize(N), BLOCK>>>(N, x, dx, batch, filters, spatial);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:562:5: warning: DPCT1049:19: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  562 |     fast_mean_kernel<<<filters, BLOCK>>>(x, batch, filters, spatial, mean);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:568:5: warning: DPCT1049:20: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  568 |     fast_variance_kernel<<<filters, BLOCK>>>(x, mean, batch, filters, spatial, variance);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:575:5: warning: DPCT1049:21: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  575 |     mean_kernel<<<cuda_gridsize(filters), BLOCK>>>(x, batch, filters, spatial, mean);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:581:5: warning: DPCT1049:22: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  581 |     variance_kernel<<<cuda_gridsize(filters), BLOCK>>>(x, mean, batch, filters, spatial, variance);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:592:5: warning: DPCT1049:23: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  592 |     pow_kernel<<<cuda_gridsize(N), BLOCK>>>(N, ALPHA, X, INCX, Y, INCY);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:598:5: warning: DPCT1049:24: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  598 |     axpy_kernel<<<cuda_gridsize(N), BLOCK>>>(N, ALPHA, X, OFFX, INCX, Y, OFFY, INCY);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:609:5: warning: DPCT1049:25: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  609 |     mul_kernel<<<cuda_gridsize(N), BLOCK>>>(N, X, INCX, Y, INCY);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:615:5: warning: DPCT1049:26: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  615 |     copy_kernel<<<cuda_gridsize(N), BLOCK>>>(N, X, OFFX, INCX, Y, OFFY, INCY);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:639:5: warning: DPCT1049:27: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  639 |     flatten_kernel<<<cuda_gridsize(size), BLOCK>>>(size, x, spatial, layers, batch, forward, out);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:646:5: warning: DPCT1049:28: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  646 |     reorg_kernel<<<cuda_gridsize(size), BLOCK>>>(size, x, w, h, c, batch, stride, forward, out);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:658:5: warning: DPCT1049:29: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  658 |     mask_kernel<<<cuda_gridsize(N), BLOCK>>>(N, X, mask_num, mask, val);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:670:5: warning: DPCT1049:30: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  670 |     scale_mask_kernel<<<cuda_gridsize(N), BLOCK>>>(N, X, mask_num, mask, scale);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:676:5: warning: DPCT1049:31: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  676 |     const_kernel<<<cuda_gridsize(N), BLOCK>>>(N, ALPHA, X, INCX);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:682:5: warning: DPCT1049:32: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  682 |     constrain_kernel<<<cuda_gridsize(N), BLOCK>>>(N, ALPHA, X, INCX);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:689:5: warning: DPCT1049:33: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  689 |     add_kernel<<<cuda_gridsize(N), BLOCK>>>(N, ALPHA, X, INCX);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:695:5: warning: DPCT1049:34: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  695 |     scal_kernel<<<cuda_gridsize(N), BLOCK>>>(N, ALPHA, X, INCX);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:701:5: warning: DPCT1049:35: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  701 |     supp_kernel<<<cuda_gridsize(N), BLOCK>>>(N, ALPHA, X, INCX);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:707:5: warning: DPCT1049:36: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  707 |     fill_kernel<<<cuda_gridsize(N), BLOCK>>>(N, ALPHA, X, INCX);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:743:5: warning: DPCT1049:37: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  743 |     shortcut_kernel<<<cuda_gridsize(size), BLOCK>>>(size, minw, minh, minc, stride, sample, batch, w1, h1, c1, add, w2, h2, c2, s1, s2, out);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:766:5: warning: DPCT1049:38: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  766 |     smooth_l1_kernel<<<cuda_gridsize(n), BLOCK>>>(n, pred, truth, delta, error);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:783:5: warning: DPCT1049:39: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  783 |     softmax_x_ent_kernel<<<cuda_gridsize(n), BLOCK>>>(n, pred, truth, delta, error);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:800:5: warning: DPCT1049:40: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  800 |     logistic_x_ent_kernel<<<cuda_gridsize(n), BLOCK>>>(n, pred, truth, delta, error);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:816:5: warning: DPCT1049:41: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  816 |     l2_kernel<<<cuda_gridsize(n), BLOCK>>>(n, pred, truth, delta, error);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:832:5: warning: DPCT1049:42: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  832 |     l1_kernel<<<cuda_gridsize(n), BLOCK>>>(n, pred, truth, delta, error);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:847:5: warning: DPCT1049:43: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  847 |     wgan_kernel<<<cuda_gridsize(n), BLOCK>>>(n, pred, truth, delta, error);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:878:5: warning: DPCT1049:44: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  878 |     deinter_kernel<<<cuda_gridsize((NX+NY)*B), BLOCK>>>(NX, X, NY, Y, B, OUT);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:898:5: warning: DPCT1049:45: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  898 |     inter_kernel<<<cuda_gridsize((NX+NY)*B), BLOCK>>>(NX, X, NY, Y, B, OUT);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:904:5: warning: DPCT1049:46: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  904 |     weighted_sum_kernel<<<cuda_gridsize(num), BLOCK>>>(num, a, b, s, c);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:920:5: warning: DPCT1049:47: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  920 |     weighted_delta_kernel<<<cuda_gridsize(num), BLOCK>>>(num, a, b, s, da, db, ds, dc);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:934:5: warning: DPCT1049:48: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  934 |     mult_add_into_kernel<<<cuda_gridsize(num), BLOCK>>>(num, a, b, c);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:985:5: warning: DPCT1049:49: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  985 |     softmax_tree_kernel<<<cuda_gridsize(num), BLOCK>>>(input, spatial, batch, stride, temp, output, hier.groups, tree_groups_size, tree_groups_offset);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:1002:5: warning: DPCT1049:50: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+ 1002 |     softmax_kernel<<<cuda_gridsize(batch*groups), BLOCK>>>(input, n, batch, batch_offset, groups, group_offset, stride, temp, output);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:1033:5: warning: DPCT1049:51: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+ 1033 |     upsample_kernel<<<cuda_gridsize(size), BLOCK>>>(size, in, w, h, c, batch, stride, forward, scale, out);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/crop_layer_kernels.cu:198:5: warning: DPCT1049:52: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  198 |     levels_image_kernel<<<cuda_gridsize(size), BLOCK>>>(net.input_gpu, layer.rand_gpu, layer.batch, layer.w, layer.h, net.train, layer.saturation, layer.exposure, translate, scale, layer.shift);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/crop_layer_kernels.cu:203:5: warning: DPCT1049:53: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  203 |     forward_crop_layer_kernel<<<cuda_gridsize(size), BLOCK>>>(net.input_gpu, layer.rand_gpu, size, layer.c, layer.h, layer.w, layer.out_h, layer.out_w, net.train, layer.flip, radians, layer.output_gpu);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/maxpool_layer_kernels.cu:95:5: warning: DPCT1049:54: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   95 |     forward_maxpool_layer_kernel<<<cuda_gridsize(n), BLOCK>>>(n, layer.h, layer.w, layer.c, layer.stride, layer.size, layer.pad, net.input_gpu, layer.output_gpu, layer.indexes_gpu);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/maxpool_layer_kernels.cu:103:5: warning: DPCT1049:55: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  103 |     backward_maxpool_layer_kernel<<<cuda_gridsize(n), BLOCK>>>(n, layer.h, layer.w, layer.c, layer.stride, layer.size, layer.pad, layer.delta_gpu, net.delta_gpu, layer.indexes_gpu);
+      |     ^
+/zhaojiam/src/darknet_dev/src/box.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/im2col_kernels.cu
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/iseg_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/col2im.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/image.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/deconvolutional_layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/layer.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/tree.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/dropout_layer_kernels.cu
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/im2col.c
+Parsing: /export/users/zhaojiam/src/darknet_dev/src/shortcut_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/gru_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/option_list.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/detection_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/cifar.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/nightmare.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/region_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/coco.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/crnn_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/yolo_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/tag.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/reorg_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/maxpool_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/col2im_kernels.cu
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/lstm_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/dropout_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/matrix.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/detector.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/avgpool_layer_kernels.cu
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/network.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/route_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/cost_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/upsample_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/deconvolutional_kernels.cu
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/crop_layer_kernels.cu
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/segmenter.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/lsd.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/activation_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/super.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/rnn_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/go.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/parser.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/local_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/softmax_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/gemm.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/normalization_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/captcha.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/crop_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/list.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/art.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/maxpool_layer_kernels.cu
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/classifier.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/l2norm_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/demo.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/blas.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/connected_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/utils.c
+Analyzing: /export/users/zhaojiam/export/users/zhaojiam/src/darknet_dev/src/im2col_kernels.cu:56:5: warning: DPCT1049:56: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   56 |     im2col_gpu_kernel<<<(num_kernels+BLOCK-1)/BLOCK,
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu:165:5: warning: DPCT1049:57: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  165 |     binary_gradient_array_kernel<<<cuda_gridsize(n/2), BLOCK>>>(x, dx, n/2, size, a, y);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu:180:5: warning: DPCT1049:58: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  180 |     binary_activate_array_kernel<<<cuda_gridsize(n/2), BLOCK>>>(x, n/2, size, a, y);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu:198:5: warning: DPCT1049:59: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  198 |     activate_array_kernel<<<cuda_gridsize(n), BLOCK>>>(x, n, a);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu:204:5: warning: DPCT1049:60: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+  204 |     gradient_array_kernel<<<cuda_gridsize(n), BLOCK>>>(x, n, a, delta);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/dropout_layer_kernels.cu:30:5: warning: DPCT1049:61: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   30 |     yoloswag420blazeit360noscope<<<cuda_gridsize(size), BLOCK>>>(net.input_gpu, size, layer.rand_gpu, layer.probability, layer.scale);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/dropout_layer_kernels.cu:39:5: warning: DPCT1049:62: The work-group size passed to the SYCL kernel may exceed the limit. To get the device limit, query info::device::max_work_group_size. Adjust the work-group size if needed.
+   39 |     yoloswag420blazeit360noscope<<<cuda_gridsize(size), BLOCK>>>(net.delta_gpu, size, layer.rand_gpu, layer.probability, layer.scale);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu:26:17: warning: DPCT1010:63: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   26 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu:47:17: warning: DPCT1010:64: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   47 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu:70:17: warning: DPCT1010:65: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   70 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu:176:17: warning: DPCT1010:66: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  176 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/avgpool_layer_kernels.cu:51:17: warning: DPCT1010:67: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   51 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/avgpool_layer_kernels.cu:59:17: warning: DPCT1010:68: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   59 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:27:17: warning: DPCT1010:69: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   27 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:44:5: warning: DPCT1065:70: Consider replacing sycl::nd_item::barrier() with sycl::nd_item::barrier(sycl::access::fence_space::local_space) for better performance if there is no access to global memory.
+   44 |     __syncthreads();
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:53:17: warning: DPCT1010:71: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   53 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:74:17: warning: DPCT1010:72: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   74 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:104:5: warning: DPCT1065:73: Consider replacing sycl::nd_item::barrier() with sycl::nd_item::barrier(sycl::access::fence_space::local_space) for better performance if there is no access to global memory.
+  104 |     __syncthreads();
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:117:17: warning: DPCT1010:74: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  117 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:177:17: warning: DPCT1010:75: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  177 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:216:17: warning: DPCT1010:76: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  216 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:263:5: warning: DPCT1065:77: Consider replacing sycl::nd_item::barrier() with sycl::nd_item::barrier(sycl::access::fence_space::local_space) for better performance if there is no access to global memory.
+  263 |     __syncthreads();
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:293:5: warning: DPCT1065:78: Consider replacing sycl::nd_item::barrier() with sycl::nd_item::barrier(sycl::access::fence_space::local_space) for better performance if there is no access to global memory.
+  293 |     __syncthreads();
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:323:17: warning: DPCT1010:79: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  323 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:329:17: warning: DPCT1010:80: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  329 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:335:17: warning: DPCT1010:81: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  335 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:469:17: warning: DPCT1010:82: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  469 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:498:17: warning: DPCT1010:83: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  498 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:519:5: warning: DPCT1065:84: Consider replacing sycl::nd_item::barrier() with sycl::nd_item::barrier(sycl::access::fence_space::local_space) for better performance if there is no access to global memory.
+  519 |     __syncthreads();
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:549:5: warning: DPCT1065:85: Consider replacing sycl::nd_item::barrier() with sycl::nd_item::barrier(sycl::access::fence_space::local_space) for better performance if there is no access to global memory.
+  549 |     __syncthreads();
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:563:17: warning: DPCT1010:86: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  563 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:569:17: warning: DPCT1010:87: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  569 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:576:17: warning: DPCT1010:88: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  576 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:582:17: warning: DPCT1010:89: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  582 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:593:17: warning: DPCT1010:90: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  593 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:599:17: warning: DPCT1010:91: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  599 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:610:17: warning: DPCT1010:92: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  610 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:616:17: warning: DPCT1010:93: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  616 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:640:17: warning: DPCT1010:94: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  640 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:647:17: warning: DPCT1010:95: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  647 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:659:17: warning: DPCT1010:96: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  659 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:671:17: warning: DPCT1010:97: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  671 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:677:17: warning: DPCT1010:98: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  677 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:683:17: warning: DPCT1010:99: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  683 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:690:17: warning: DPCT1010:100: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  690 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:696:17: warning: DPCT1010:101: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  696 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:702:17: warning: DPCT1010:102: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  702 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:708:17: warning: DPCT1010:103: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  708 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:744:17: warning: DPCT1010:104: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  744 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:767:17: warning: DPCT1010:105: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  767 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:784:17: warning: DPCT1010:106: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  784 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:801:17: warning: DPCT1010:107: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  801 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:817:17: warning: DPCT1010:108: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  817 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:833:17: warning: DPCT1010:109: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  833 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:848:17: warning: DPCT1010:110: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  848 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:879:17: warning: DPCT1010:111: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  879 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:899:17: warning: DPCT1010:112: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  899 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:905:17: warning: DPCT1010:113: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  905 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:921:17: warning: DPCT1010:114: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  921 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:935:17: warning: DPCT1010:115: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  935 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:986:17: warning: DPCT1010:116: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  986 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:1003:17: warning: DPCT1010:117: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+ 1003 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:1034:17: warning: DPCT1010:118: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+ 1034 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/crop_layer_kernels.cu:199:17: warning: DPCT1010:119: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  199 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/crop_layer_kernels.cu:204:17: warning: DPCT1010:120: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  204 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/src/darknet_dev/examples/darknet.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/rnn.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/cuda.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/regressor.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/instance-segmenter.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/avgpool_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/image_opencv.cpp
+Analyzing: /export/users/zhaojiam/src/darknet_dev/examples/yolo.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/activations.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/logistic_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/data.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/batchnorm_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/box.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/im2col_kernels.cu
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/iseg_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/col2im.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/image.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/deconvolutional_layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/layer.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/tree.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/dropout_layer_kernels.cu
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/im2col.c
+Analyzing: /export/users/zhaojiam/src/darknet_dev/src/shortcut_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/gru_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/option_list.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/detection_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/cifar.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/nightmare.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/region_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/coco.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/crnn_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/yolo_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/tag.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/reorg_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/maxpool_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/col2im_kernels.cu
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/lstm_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/dropout_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/matrix.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/detector.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/convolutional_kernels.cu
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/avgpool_layer_kernels.cu
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/network.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/route_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/cost_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/upsample_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/deconvolutional_kernels.cu
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/crop_layer_kernels.cu
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/segmenter.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/lsd.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/activation_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/super.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/rnn_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/go.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/parser.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/local_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/softmax_la/export/users/zhaojiam/src/darknet_dev/src/maxpool_layer_kernels.cu:96:17: warning: DPCT1010:121: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   96 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/maxpool_layer_kernels.cu:104:17: warning: DPCT1010:122: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  104 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/connected_layer.c:120:9: warning: DPCT1026:123: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+  120 |         cudnnCreateTensorDescriptor(&l.normTensorDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/connected_layer.c:121:9: warning: DPCT1026:124: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+  121 |         cudnnCreateTensorDescriptor(&l.dstTensorDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/cuda.c:15:26: warning: DPCT1093:125: The "n" device may be not the one intended for use. Adjust the selected device if needed.
+   15 |     cudaError_t status = cudaSetDevice(n);
+      |                          ^
+/export/users/zhaojiam/src/darknet_dev/src/cuda.c:36:9: warning: DPCT1001:126: The statement could not be removed.
+   36 |         assert(0);
+      |         ^
+/usr/include/assert.h:108:3: note: expanded from macro 'assert'
+  108 |   ((void) sizeof ((expr) ? 1 : 0), __extension__ ({                     \
+      |   ^
+/export/users/zhaojiam/src/darknet_dev/src/cuda.c:31:5: warning: DPCT1000:127: Error handling if-stmt was detected but could not be rewritten.
+   31 |     if (status != cudaSuccess)
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/cuda.c:45:9: warning: DPCT1001:128: The statement could not be removed.
+   45 |         assert(0);
+      |         ^
+/usr/include/assert.h:108:3: note: expanded from macro 'assert'
+  108 |   ((void) sizeof ((expr) ? 1 : 0), __extension__ ({                     \
+      |   ^
+/export/users/zhaojiam/src/darknet_dev/src/cuda.c:40:5: warning: DPCT1000:129: Error handling if-stmt was detected but could not be rewritten.
+   40 |     if (status2 != cudaSuccess)
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/cuda.c:30:27: warning: DPCT1010:130: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   30 |     cudaError_t status2 = cudaGetLastError();
+      |                           ^
+/export/users/zhaojiam/src/darknet_dev/src/cuda.c:33:25: warning: DPCT1009:131: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced by a placeholder string. You need to rewrite this code.
+   33 |         const char *s = cudaGetErrorString(status);
+      |                         ^
+/export/users/zhaojiam/src/darknet_dev/src/cuda.c:42:25: warning: DPCT1009:132: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced by a placeholder string. You need to rewrite this code.
+   42 |         const char *s = cudaGetErrorString(status);
+      |                         ^
+/export/users/zhaojiam/src/darknet_dev/src/cuda.c:117:17: warning: DPCT1010:133: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  117 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:135:5: warning: DPCT1007:134: Migration of convolution mode and computation datatype option is not supported.
+  135 |     cudnnSetConvolution2dDescriptor(l->convDesc, l->pad, l->pad, l->stride, l->stride, 1, 1, CUDNN_CROSS_CORRELATION, CUDNN_DATA_FLOAT);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:135:94: warning: DPCT1007:135: Migration of CUDNN_CROSS_CORRELATION is not supported.
+  135 |     cudnnSetConvolution2dDescriptor(l->convDesc, l->pad, l->pad, l->stride, l->stride, 1, 1, CUDNN_CROSS_CORRELATION, CUDNN_DATA_FLOAT);
+      |                                                                                              ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:153:13: warning: DPCT1007:136: Migration of CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT is not supported.
+  153 |             CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT,
+      |             ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:161:13: warning: DPCT1007:137: Migration of CUDNN_CONVOLUTION_BWD_DATA_SPECIFY_WORKSPACE_LIMIT is not supported.
+  161 |             CUDNN_CONVOLUTION_BWD_DATA_SPECIFY_WORKSPACE_LIMIT,
+      |             ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:169:13: warning: DPCT1007:138: Migration of CUDNN_CONVOLUTION_BWD_FILTER_SPECIFY_WORKSPACE_LIMIT is not supported.
+  169 |             CUDNN_CONVOLUTION_BWD_FILTER_SPECIFY_WORKSPACE_LIMIT,
+      |             ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:310:9: warning: DPCT1026:139: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+  310 |         cudnnCreateTensorDescriptor(&l.normTensorDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:311:9: warning: DPCT1026:140: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+  311 |         cudnnCreateTensorDescriptor(&l.srcTensorDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:312:9: warning: DPCT1026:141: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+  312 |         cudnnCreateTensorDescriptor(&l.dstTensorDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:313:9: warning: DPCT1026:142: The call to cudnnCreateFilterDescriptor was removed because this functionality is redundant in SYCL.
+  313 |         cudnnCreateFilterDescriptor(&l.weightDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:314:9: warning: DPCT1026:143: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+  314 |         cudnnCreateTensorDescriptor(&l.dsrcTensorDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:315:9: warning: DPCT1026:144: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+  315 |         cudnnCreateTensorDescriptor(&l.ddstTensorDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:316:9: warning: DPCT1026:145: The call to cudnnCreateFilterDescriptor was removed because this functionality is redundant in SYCL.
+  316 |         cudnnCreateFilterDescriptor(&l.dweightDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c:317:9: warning: DPCT1026:146: The call to cudnnCreateConvolutionDescriptor was removed because this functionality is redundant in SYCL.
+  317 |         cudnnCreateConvolutionDescriptor(&l.convDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/batchnorm_layer.c:62:5: warning: DPCT1026:147: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+   62 |     cudnnCreateTensorDescriptor(&l.normTensorDesc);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/batchnorm_layer.c:63:5: warning: DPCT1026:148: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+   63 |     cudnnCreateTensorDescriptor(&l.dstTensorDesc);
+      |     ^
+/export/users/zhaojiam/src/darknet_dev/src/deconvolutional_layer.c:153:9: warning: DPCT1026:149: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+  153 |         cudnnCreateTensorDescriptor(&l.dstTensorDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/deconvolutional_layer.c:154:9: warning: DPCT1026:150: The call to cudnnCreateTensorDescriptor was removed because this functionality is redundant in SYCL.
+  154 |         cudnnCreateTensorDescriptor(&l.normTensorDesc);
+      |         ^
+/export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu:166:17: warning: DPCT1010:151: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  166 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu:181:17: warning: DPCT1010:152: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  181 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu:199:17: warning: DPCT1010:153: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  199 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu:205:17: warning: DPCT1010:154: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+  205 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/dropout_layer_kernels.cu:31:17: warning: DPCT1010:155: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   31 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/dropout_layer_kernels.cu:40:17: warning: DPCT1010:156: SYCL uses exceptions to report errors and does not use the error codes. The call was replaced with 0. You need to rewrite this code.
+   40 |     check_error(cudaPeekAtLastError());
+      |                 ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:32:22: warning: DPCT1101:157: 'BLOCK' expression was replaced with a value. Modify the code to use the original expression, provided in comments, if it is correct.
+   32 |     __shared__ float part[BLOCK];
+      |                      ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:92:22: warning: DPCT1101:158: 'BLOCK' expression was replaced with a value. Modify the code to use the original expression, provided in comments, if it is correct.
+   92 |     __shared__ float part[BLOCK];
+      |                      ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:248:22: warning: DPCT1101:159: 'threads' expression was replaced with a value. Modify the code to use the original expression, provided in comments, if it is correct.
+  248 |     __shared__ float local[threads];
+      |                      ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:277:22: warning: DPCT1101:160: 'threads' expression was replaced with a value. Modify the code to use the original expression, provided in comments, if it is correct.
+  277 |     __shared__ float local[threads];
+      |                      ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:504:22: warning: DPCT1101:161: 'threads' expression was replaced with a value. Modify the code to use the original expression, provided in comments, if it is correct.
+  504 |     __shared__ float local[threads];
+      |                      ^
+/export/users/zhaojiam/src/darknet_dev/src/blas_kernels.cu:533:22: warning: DPCT1101:162: 'threads' expression was replaced with a value. Modify the code to use the original expression, provided in comments, if it is correct.
+  533 |     __shared__ float local[threads];
+      |                      ^
+Saved new version of /export/users/zhaojiam/src/darknet_dpct_cudnn/include/darknet.h.yaml file
+Saved new version of /export/users/zhaojiam/src/darknet_dpct_cudnn/src/activations.h.yaml file
+Saved new version of /export/users/zhaojiam/src/darknet_dpct_cudnn/src/box.h.yaml file
+Saved new version of /export/users/zhaojiam/src/darknet_dpct_cudnn/src/darknet_cuda.h.yaml file
+
+yer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/gemm.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/normalization_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/captcha.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/crop_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/list.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/art.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/maxpool_layer_kernels.cu
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/classifier.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/l2norm_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/demo.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/blas.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/connected_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/utils.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/darknet.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/rnn.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/cuda.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/regressor.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/instance-segmenter.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/avgpool_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/image_opencv.cpp
+Migrating: /export/users/zhaojiam/src/darknet_dev/examples/yolo.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/activations.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/logistic_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/convolutional_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/data.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/batchnorm_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/box.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/im2col_kernels.cu
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/iseg_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/col2im.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/image.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/deconvolutional_layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/layer.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/tree.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/activation_kernels.cu
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/dropout_layer_kernels.cu
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/im2col.c
+Migrating: /export/users/zhaojiam/src/darknet_dev/src/shortcut_layer.c
+Processed 74 file(s) in -in-root folder "/export/users/zhaojiam/src/darknet_dev"
+
+See Diagnostics Reference to resolve warnings and complete the migration:
+https://www.intel.com/content/www/us/en/docs/dpcpp-compatibility-tool/developer-guide-reference/current/diagnostics-reference.html

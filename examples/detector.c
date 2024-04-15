@@ -1,3 +1,4 @@
+#include <dpct/dnnl_utils.hpp>
 #include "darknet.h"
 
 static int coco_ids[] = {1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,31,32,33,34,35,36,37,38,39,40,41,42,43,44,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,67,70,72,73,74,75,76,77,78,79,80,81,82,84,85,86,87,88,89,90};
@@ -13,7 +14,7 @@ void train_detector(char *datacfg, char *cfgfile, char *weightfile, int *gpus, i
     char *base = basecfg(cfgfile);
     printf("%s\n", base);
     float avg_loss = -1;
-    network **nets = calloc(ngpus, sizeof(network));
+    network **nets = (network **)calloc(ngpus, sizeof(network));
 
     srand(time(0));
     int seed = rand();
@@ -274,7 +275,7 @@ void validate_detector_flip(char *datacfg, char *cfgfile, char *weightfile, char
         classes = 200;
     } else {
         if(!outfile) outfile = "comp4_det_test_";
-        fps = calloc(classes, sizeof(FILE *));
+        fps = (FILE **)calloc(classes, sizeof(FILE *));
         for(j = 0; j < classes; ++j){
             snprintf(buff, 1024, "%s/%s%s.txt", prefix, outfile, names[j]);
             fps[j] = fopen(buff, "w");
@@ -289,11 +290,11 @@ void validate_detector_flip(char *datacfg, char *cfgfile, char *weightfile, char
     float nms = .45;
 
     int nthreads = 4;
-    image *val = calloc(nthreads, sizeof(image));
-    image *val_resized = calloc(nthreads, sizeof(image));
-    image *buf = calloc(nthreads, sizeof(image));
-    image *buf_resized = calloc(nthreads, sizeof(image));
-    pthread_t *thr = calloc(nthreads, sizeof(pthread_t));
+    image *val = (image *)calloc(nthreads, sizeof(image));
+    image *val_resized = (image *)calloc(nthreads, sizeof(image));
+    image *buf = (image *)calloc(nthreads, sizeof(image));
+    image *buf_resized = (image *)calloc(nthreads, sizeof(image));
+    pthread_t *thr = (pthread_t *)calloc(nthreads, sizeof(pthread_t));
 
     image input = make_image(net->w, net->h, net->c*2);
 
@@ -404,7 +405,7 @@ void validate_detector(char *datacfg, char *cfgfile, char *weightfile, char *out
         classes = 200;
     } else {
         if(!outfile) outfile = "comp4_det_test_";
-        fps = calloc(classes, sizeof(FILE *));
+        fps = (FILE **)calloc(classes, sizeof(FILE *));
         for(j = 0; j < classes; ++j){
             snprintf(buff, 1024, "%s/%s%s.txt", prefix, outfile, names[j]);
             fps[j] = fopen(buff, "w");
@@ -420,11 +421,11 @@ void validate_detector(char *datacfg, char *cfgfile, char *weightfile, char *out
     float nms = .45;
 
     int nthreads = 4;
-    image *val = calloc(nthreads, sizeof(image));
-    image *val_resized = calloc(nthreads, sizeof(image));
-    image *buf = calloc(nthreads, sizeof(image));
-    image *buf_resized = calloc(nthreads, sizeof(image));
-    pthread_t *thr = calloc(nthreads, sizeof(pthread_t));
+    image *val = (image *)calloc(nthreads, sizeof(image));
+    image *val_resized = (image *)calloc(nthreads, sizeof(image));
+    image *buf = (image *)calloc(nthreads, sizeof(image));
+    image *buf_resized = (image *)calloc(nthreads, sizeof(image));
+    pthread_t *thr = (pthread_t *)calloc(nthreads, sizeof(pthread_t));
 
     load_args args = {0};
     args.w = net->w;
@@ -811,7 +812,7 @@ void run_detector(int argc, char **argv)
         for(i = 0; i < len; ++i){
             if (gpu_list[i] == ',') ++ngpus;
         }
-        gpus = calloc(ngpus, sizeof(int));
+        gpus = (int *)calloc(ngpus, sizeof(int));
         for(i = 0; i < ngpus; ++i){
             gpus[i] = atoi(gpu_list);
             gpu_list = strchr(gpu_list, ',')+1;

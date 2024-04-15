@@ -1,11 +1,13 @@
+#include <dpct/dnnl_utils.hpp>
 #include "darknet.h"
 
 #include <sys/time.h>
 #include <assert.h>
+#include <time.h>
 
 float *get_regression_values(char **labels, int n)
 {
-    float *v = calloc(n, sizeof(float));
+    float *v = (float *)calloc(n, sizeof(float));
     int i;
     for(i = 0; i < n; ++i){
         char *p = strchr(labels[i], ' ');
@@ -23,7 +25,7 @@ void train_classifier(char *datacfg, char *cfgfile, char *weightfile, int *gpus,
     char *base = basecfg(cfgfile);
     printf("%s\n", base);
     printf("%d\n", ngpus);
-    network **nets = calloc(ngpus, sizeof(network*));
+    network **nets = (network **)calloc(ngpus, sizeof(network *));
 
     srand(time(0));
     int seed = rand();
@@ -254,7 +256,7 @@ void validate_classifier_10(char *datacfg, char *filename, char *weightfile)
 
     float avg_acc = 0;
     float avg_topk = 0;
-    int *indexes = calloc(topk, sizeof(int));
+    int *indexes = (int *)calloc(topk, sizeof(int));
 
     for(i = 0; i < m; ++i){
         int class = -1;
@@ -281,7 +283,7 @@ void validate_classifier_10(char *datacfg, char *filename, char *weightfile)
         images[7] = crop_image(im, 0, 0, w, h);
         images[8] = crop_image(im, -shift, shift, w, h);
         images[9] = crop_image(im, shift, shift, w, h);
-        float *pred = calloc(classes, sizeof(float));
+        float *pred = (float *)calloc(classes, sizeof(float));
         for(j = 0; j < 10; ++j){
             float *p = network_predict(net, images[j].data);
             if(net->hierarchy) hierarchy_predictions(p, net->outputs, net->hierarchy, 1, 1);
@@ -323,7 +325,7 @@ void validate_classifier_full(char *datacfg, char *filename, char *weightfile)
 
     float avg_acc = 0;
     float avg_topk = 0;
-    int *indexes = calloc(topk, sizeof(int));
+    int *indexes = (int *)calloc(topk, sizeof(int));
 
     int size = net->w;
     for(i = 0; i < m; ++i){
@@ -383,7 +385,7 @@ void validate_classifier_single(char *datacfg, char *filename, char *weightfile)
 
     float avg_acc = 0;
     float avg_topk = 0;
-    int *indexes = calloc(topk, sizeof(int));
+    int *indexes = (int *)calloc(topk, sizeof(int));
 
     for(i = 0; i < m; ++i){
         int class = -1;
@@ -443,7 +445,7 @@ void validate_classifier_multi(char *datacfg, char *cfg, char *weights)
 
     float avg_acc = 0;
     float avg_topk = 0;
-    int *indexes = calloc(topk, sizeof(int));
+    int *indexes = (int *)calloc(topk, sizeof(int));
 
     for(i = 0; i < m; ++i){
         int class = -1;
@@ -454,7 +456,7 @@ void validate_classifier_multi(char *datacfg, char *cfg, char *weights)
                 break;
             }
         }
-        float *pred = calloc(classes, sizeof(float));
+        float *pred = (float *)calloc(classes, sizeof(float));
         image im = load_image_color(paths[i], 0, 0);
         for(j = 0; j < nscales; ++j){
             image r = resize_max(im, scales[j]);
@@ -494,7 +496,7 @@ void try_classifier(char *datacfg, char *cfgfile, char *weightfile, char *filena
     int i = 0;
     char **names = get_labels(name_list);
     clock_t time;
-    int *indexes = calloc(top, sizeof(int));
+    int *indexes = (int *)calloc(top, sizeof(int));
     char buff[256];
     char *input = buff;
     while(1){
@@ -572,7 +574,7 @@ void predict_classifier(char *datacfg, char *cfgfile, char *weightfile, char *fi
     int i = 0;
     char **names = get_labels(name_list);
     clock_t time;
-    int *indexes = calloc(top, sizeof(int));
+    int *indexes = (int *)calloc(top, sizeof(int));
     char buff[256];
     char *input = buff;
     while(1){
@@ -662,7 +664,7 @@ void csv_classifier(char *datacfg, char *cfgfile, char *weightfile)
     char **paths = (char **)list_to_array(plist);
     int m = plist->size;
     free_list(plist);
-    int *indexes = calloc(top, sizeof(int));
+    int *indexes = (int *)calloc(top, sizeof(int));
 
     for(i = 0; i < m; ++i){
         double time = what_time_is_it_now();
