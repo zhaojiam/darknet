@@ -2,7 +2,7 @@ int gpu_index = 0;
 
 #ifdef GPU
 
-#include "cuda.h"
+#include "darknet_cuda.h"
 #include "utils.h"
 #include "blas.h"
 #include <assert.h>

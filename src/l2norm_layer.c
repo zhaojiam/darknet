@@ -1,7 +1,7 @@
 #include "l2norm_layer.h"
 #include "activations.h"
 #include "blas.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 
 #include <float.h>
 #include <math.h>

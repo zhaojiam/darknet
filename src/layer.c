@@ -1,5 +1,5 @@
 #include "layer.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 
 #include <stdlib.h>
 

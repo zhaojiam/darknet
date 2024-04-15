@@ -4,7 +4,7 @@
 
 extern "C" {
 #include "dropout_layer.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 #include "utils.h"
 }
 

@@ -5,7 +5,7 @@
 
 extern "C" {
 #include "blas.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 #include "utils.h"
 }
 

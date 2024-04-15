@@ -11,7 +11,7 @@ extern "C" {
 #include "im2col.h"
 #include "col2im.h"
 #include "utils.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 }
 
 extern "C" void forward_deconvolutional_layer_gpu(layer l, network net)

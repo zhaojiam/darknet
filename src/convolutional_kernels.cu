@@ -10,7 +10,7 @@ extern "C" {
 #include "im2col.h"
 #include "col2im.h"
 #include "utils.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 }
 
 __global__ void binarize_kernel(float *x, int n, float *binary)

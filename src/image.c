@@ -1,7 +1,7 @@
 #include "image.h"
 #include "utils.h"
 #include "blas.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 #include <stdio.h>
 #include <math.h>
 

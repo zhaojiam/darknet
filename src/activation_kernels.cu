@@ -4,7 +4,7 @@
 
 extern "C" {
 #include "activations.h"
-#include "cuda.h"
+#include "darknet_cuda.h"
 }
 
 
