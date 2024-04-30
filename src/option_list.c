@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

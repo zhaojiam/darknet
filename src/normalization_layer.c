@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "normalization_layer.h"
 #include "blas.h"
 

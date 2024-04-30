@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "blas.h"
 
 #include <math.h>

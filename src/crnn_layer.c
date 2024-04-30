@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "crnn_layer.h"
 #include "convolutional_layer.h"
 #include "utils.h"

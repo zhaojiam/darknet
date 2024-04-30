@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+// #include <dpct/dnnl_utils.hpp>
 #include <math.h>
 #include "darknet.h"
 #include <time.h>

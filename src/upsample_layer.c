@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "upsample_layer.h"
 #include "darknet_cuda.h"
 #include "blas.h"

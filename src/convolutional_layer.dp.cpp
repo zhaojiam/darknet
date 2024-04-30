@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "convolutional_layer.h"
@@ -10,6 +10,7 @@
 #include "gemm.h"
 #include <stdio.h>
 #include <time.h>
+#include "debug.h"
 
 #ifdef AI2
 #include "xnor_layer.h"
@@ -107,30 +108,45 @@ static size_t get_workspace_size(layer l){
 #ifdef CUDNN
 void cudnn_convolutional_setup(layer *l)
 {
-    (l->dsrcTensorDesc)
+    
+    set_memory_for_dnnl(
+        &l->srcTensorDesc,
+        &l->dstTensorDesc,
+        &l->dsrcTensorDesc,
+        &l->ddstTensorDesc,
+        &l->normTensorDesc,
+        &l->weightDesc,
+        &l->dweightDesc,
+        &l->convDesc,
+        &l->fw_algo,
+        &l->bd_algo,
+        &l->bf_algo
+    );
+
+    (*((dpct::dnnl::memory_desc_ext*)(l->dsrcTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, l->batch, l->c, l->h, l->w);
-    (l->ddstTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l->ddstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, l->batch, l->out_c, l->out_h,
              l->out_w);
 
-    (l->srcTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l->srcTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, l->batch, l->c, l->h, l->w);
-    (l->dstTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l->dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, l->batch, l->out_c, l->out_h,
              l->out_w);
-    (l->normTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l->normTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, 1, l->out_c, 1, 1);
 
-    (l->dweightDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l->dweightDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, l->n, l->c / l->groups, l->size,
              l->size);
-    (l->weightDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l->weightDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, l->n, l->c / l->groups, l->size,
              l->size);
@@ -142,22 +158,23 @@ void cudnn_convolutional_setup(layer *l)
     /*
     DPCT1007:135: Migration of CUDNN_CROSS_CORRELATION is not supported.
     */
-    (l->convDesc).set(l->pad, l->pad, l->stride, l->stride, 1, 1);
+    (*((dpct::dnnl::convolution_desc*)(l->convDesc))).set(l->pad, l->pad, l->stride, l->stride, 1, 1);
 #else
-    cudnnSetConvolution2dDescriptor(l->convDesc, l->pad, l->pad, l->stride, l->stride, 1, 1, CUDNN_CROSS_CORRELATION);
+    // TODO: It seems dead code. So I simply comment it.
+    // cudnnSetConvolution2dDescriptor(*((dpct::dnnl::convolution_desc*)(l->convDesc)), l->pad, l->pad, l->stride, l->stride, 1, 1, CUDNN_CROSS_CORRELATION);
     #endif
 
     #if CUDNN_MAJOR >= 7
-    (l->convDesc).set_group_count(l->groups);
+    (*((dpct::dnnl::convolution_desc*)(l->convDesc))).set_group_count(l->groups);
 #else
     if(l->groups > 1){
         error("CUDNN < 7 doesn't support groups, please upgrade!");
     }
     #endif
 
-    l->fw_algo = dnnl::algorithm::convolution_auto;
-    l->bd_algo = dnnl::algorithm::convolution_auto;
-    l->bf_algo = dnnl::algorithm::convolution_auto;
+    *((dnnl::algorithm*)(l->fw_algo)) = dnnl::algorithm::convolution_auto;
+    *((dnnl::algorithm*)(l->bd_algo)) = dnnl::algorithm::convolution_auto;
+    *((dnnl::algorithm*)(l->bf_algo)) = dnnl::algorithm::convolution_auto;
 }
 #endif
 #endif
@@ -165,7 +182,9 @@ void cudnn_convolutional_setup(layer *l)
 convolutional_layer make_convolutional_layer(int batch, int h, int w, int c, int n, int groups, int size, int stride, int padding, ACTIVATION activation, int batch_normalize, int binary, int xnor, int adam)
 {
     int i;
-    convolutional_layer l = {0};
+    // convolutional_layer l = {0};
+    convolutional_layer l;
+    memset(&l, 0, sizeof(convolutional_layer));
     l.type = CONVOLUTIONAL;
 
     l.groups = groups;

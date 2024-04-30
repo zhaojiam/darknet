@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "connected_layer.h"
@@ -14,10 +14,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "debug.h"
+
 layer make_connected_layer(int batch, int inputs, int outputs, ACTIVATION activation, int batch_normalize, int adam)
 {
     int i;
-    layer l = {0};
+    // layer l = {0};
+    layer l;
+    memset(&l, 0, sizeof(layer));
     l.learning_rate_scale = 1;
     l.type = CONNECTED;
 
@@ -120,6 +124,21 @@ layer make_connected_layer(int batch, int inputs, int outputs, ACTIVATION activa
         l.x_gpu = cuda_make_array(l.output, l.batch*outputs);
         l.x_norm_gpu = cuda_make_array(l.output, l.batch*outputs);
 #ifdef CUDNN
+
+        set_memory_for_dnnl(
+            &l.srcTensorDesc,
+            &l.dstTensorDesc,
+            &l.dsrcTensorDesc,
+            &l.ddstTensorDesc,
+            &l.normTensorDesc,
+            &l.weightDesc,
+            &l.dweightDesc,
+            &l.convDesc,
+            &l.fw_algo,
+            &l.bd_algo,
+            &l.bf_algo
+        );
+
         /*
         DPCT1026:123: The call to cudnnCreateTensorDescriptor was removed
         because this functionality is redundant in SYCL.
@@ -128,11 +147,11 @@ layer make_connected_layer(int batch, int inputs, int outputs, ACTIVATION activa
         DPCT1026:124: The call to cudnnCreateTensorDescriptor was removed
         because this functionality is redundant in SYCL.
         */
-        (l.dstTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, l.batch, l.out_c, l.out_h,
                  l.out_w);
-        (l.normTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.normTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, 1, l.out_c, 1, 1);
 #endif

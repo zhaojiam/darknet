@@ -1,15 +1,20 @@
 #ifndef DARKNET_API
 #define DARKNET_API
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
+
+#ifdef __cplusplus
+// SYCL: Use these header files only in C++
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
+#include <dpct/rng_utils.hpp>
+#include <dpct/blas_utils.hpp>
+#endif
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <pthread.h>
-#include <dpct/rng_utils.hpp>
 
-#include <dpct/blas_utils.hpp>
 
 #ifdef GPU
     #define BLOCK 512
@@ -409,15 +414,26 @@ struct layer{
     float * squared_gpu;
     float * norms_gpu;
 #ifdef CUDNN
-    dpct::dnnl::memory_desc_ext srcTensorDesc, dstTensorDesc;
-    dpct::dnnl::memory_desc_ext dsrcTensorDesc, ddstTensorDesc;
-    dpct::dnnl::memory_desc_ext normTensorDesc;
-    dpct::dnnl::memory_desc_ext weightDesc;
-    dpct::dnnl::memory_desc_ext dweightDesc;
-    dpct::dnnl::convolution_desc convDesc;
-    dnnl::algorithm fw_algo;
-    dnnl::algorithm bd_algo;
-    dnnl::algorithm bf_algo;
+    // dpct::dnnl::memory_desc_ext srcTensorDesc, dstTensorDesc;
+    // dpct::dnnl::memory_desc_ext dsrcTensorDesc, ddstTensorDesc;
+    // dpct::dnnl::memory_desc_ext normTensorDesc;
+    // dpct::dnnl::memory_desc_ext weightDesc;
+    // dpct::dnnl::memory_desc_ext dweightDesc;
+    // dpct::dnnl::convolution_desc convDesc;
+    // dnnl::algorithm fw_algo;
+    // dnnl::algorithm bd_algo;
+    // dnnl::algorithm bf_algo;
+    void *srcTensorDesc;
+    void *dstTensorDesc;
+    void *dsrcTensorDesc;
+    void *ddstTensorDesc;
+    void *normTensorDesc;
+    void *weightDesc;
+    void *dweightDesc;
+    void *convDesc;
+    void *fw_algo;
+    void *bd_algo;
+    void *bf_algo;
 #endif
 #endif
 };

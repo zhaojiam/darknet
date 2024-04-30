@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+// #include <dpct/dnnl_utils.hpp>
 #include "darknet.h"
 #include <sys/time.h>
 #include <assert.h>

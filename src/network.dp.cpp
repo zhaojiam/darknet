@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include <stdio.h>
@@ -35,9 +35,13 @@
 #include "parser.h"
 #include "data.h"
 
+#include "debug.h"
+
 load_args get_base_args(network *net)
 {
-    load_args args = {0};
+    // load_args args = {0};
+    load_args args;
+    memset(&args, 0, sizeof(load_args));
     args.w = net->w;
     args.h = net->h;
     args.size = net->w;
@@ -223,7 +227,9 @@ void update_network(network *netp)
 #endif
     network net = *netp;
     int i;
-    update_args a = {0};
+    // update_args a = {0};
+    update_args a;
+    memset(&a, 0, sizeof(update_args));
     a.batch = net.batch*net.subdivisions;
     a.learning_rate = get_current_rate(netp);
     a.momentum = net.momentum;
@@ -351,11 +357,26 @@ void set_batch_network(network *net, int b)
         }
         if(net->layers[i].type == DECONVOLUTIONAL){
             layer *l = net->layers + i;
-            (l->dstTensorDesc)
+
+            set_memory_for_dnnl(
+                &l->srcTensorDesc,
+                &l->dstTensorDesc,
+                &l->dsrcTensorDesc,
+                &l->ddstTensorDesc,
+                &l->normTensorDesc,
+                &l->weightDesc,
+                &l->dweightDesc,
+                &l->convDesc,
+                &l->fw_algo,
+                &l->bd_algo,
+                &l->bf_algo
+            );
+
+            (*((dpct::dnnl::memory_desc_ext*)(l->dstTensorDesc)))
                 .set(dpct::dnnl::memory_format_tag::nchw,
                      dpct::library_data_t::real_float, 1, l->out_c, l->out_h,
                      l->out_w);
-            (l->normTensorDesc)
+            (*((dpct::dnnl::memory_desc_ext*)(l->normTensorDesc)))
                 .set(dpct::dnnl::memory_format_tag::nchw,
                      dpct::library_data_t::real_float, 1, l->out_c, 1, 1);
         }
@@ -454,7 +475,9 @@ layer get_network_detection_layer(network *net)
         }
     }
     fprintf(stderr, "Detection layer not found!!\n");
-    layer l = {0};
+    // layer l = {0};
+    layer l;
+    memset(&l, 0, sizeof(layer));
     return l;
 }
 
@@ -467,7 +490,9 @@ image get_network_image_layer(network *net, int i)
     if (l.out_w && l.out_h && l.out_c){
         return float_to_image(l.out_w, l.out_h, l.out_c, l.output);
     }
-    image def = {0};
+    // image def = {0};
+    image def;
+    memset(&def, 0, sizeof(image));
     return def;
 }
 
@@ -478,7 +503,9 @@ image get_network_image(network *net)
         image m = get_network_image_layer(net, i);
         if(m.h != 0) return m;
     }
-    image def = {0};
+    // image def = {0};
+    image def;
+    memset(&def, 0, sizeof(image));
     return def;
 }
 
@@ -823,7 +850,9 @@ void update_network_gpu(network *netp)
     network net = *netp;
     cuda_set_device(net.gpu_index);
     int i;
-    update_args a = {0};
+    // update_args a = {0};
+    update_args a;
+    memset(&a, 0, sizeof(update_args));
     a.batch = net.batch*net.subdivisions;
     a.learning_rate = get_current_rate(netp);
     a.momentum = net.momentum;

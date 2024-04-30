@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "iseg_layer.h"
 #include "activations.h"
 #include "blas.h"

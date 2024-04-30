@@ -1,4 +1,5 @@
 #include <dpct/dnnl_utils.hpp>
+#include <cmath>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include <dpct/rng_utils.hpp>
@@ -144,8 +145,11 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network net)
 #ifdef CUDNN
     float one = 1;
     cudnn_handle().async_convolution_forward(
-        l.convDesc, l.fw_algo, one, l.srcTensorDesc, net.input_gpu,
-        l.weightDesc, l.weights_gpu, one, l.dstTensorDesc, l.output_gpu);
+        *((dpct::dnnl::convolution_desc*)l.convDesc), 
+        *((dnnl::algorithm)l.fw_algo), one, 
+        *((dpct::dnnl::memory_desc_ext*)l.srcTensorDesc), net.input_gpu,
+        *((dpct::dnnl::memory_desc_ext*)*((dpct::dnnl::memory_desc_ext*)(l.weightDesc))), l.weights_gpu, one, 
+        *((dpct::dnnl::memory_desc_ext*)l.dstTensorDesc), l.output_gpu);
 
 #else
     int i, j;
@@ -261,16 +265,21 @@ void backward_convolutional_layer_gpu(convolutional_layer l, network net)
 #ifdef CUDNN
     float one = 1;
     cudnn_handle().async_convolution_backward_weight(
-        l.convDesc, l.bf_algo, one, l.srcTensorDesc, net.input_gpu,
-        l.ddstTensorDesc, l.delta_gpu, one, l.dweightDesc,
-        l.weight_updates_gpu);
+        *((dpct::dnnl::convolution_desc*)l.convDesc), 
+        *((dnnl::algorithm)*((dnnl::algorithm*)(l.bf_algo))), one, 
+        *((dpct::dnnl::memory_desc_ext*)l.srcTensorDesc), net.input_gpu,
+        *((dpct::dnnl::memory_desc_ext*)l.ddstTensorDesc), l.delta_gpu, one, 
+        *((dpct::dnnl::memory_desc_ext*)l.dweightDesc), l.weight_updates_gpu);
 
     if(net.delta_gpu){
         if(l.binary || l.xnor) swap_binary(&l);
         cudnn_handle().async_convolution_backward_data(
-            l.convDesc, l.bd_algo, one, l.weightDesc, l.weights_gpu,
-            l.ddstTensorDesc, l.delta_gpu, one, l.dsrcTensorDesc,
-            net.delta_gpu);
+            *((dpct::dnnl::convolution_desc*)(l.convDesc)), 
+            *((dnnl::algorithm*)(l.bd_algo)), one, 
+            *((dpct::dnnl::memory_desc_ext*)(l.weightDesc)), 
+            l.weights_gpu,
+            *((dpct::dnnl::memory_desc_ext*)(l.ddstTensorDesc)), l.delta_gpu, one, 
+            *((dpct::dnnl::memory_desc_ext*)(l.dsrcTensorDesc)), net.delta_gpu);
         if(l.binary || l.xnor) swap_binary(&l);
         if(l.xnor) gradient_array_gpu(original_input, l.batch*l.c*l.h*l.w, HARDTAN, net.delta_gpu);
     }

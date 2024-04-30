@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "maxpool_layer.h"
 #include "darknet_cuda.h"
 #include <stdio.h>

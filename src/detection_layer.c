@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "detection_layer.h"
 #include "activations.h"
 #include "softmax_layer.h"

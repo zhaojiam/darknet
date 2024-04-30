@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "dropout_layer.h"
 #include "utils.h"
 #include "darknet_cuda.h"

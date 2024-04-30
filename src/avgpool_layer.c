@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "avgpool_layer.h"
 #include "darknet_cuda.h"
 #include <stdio.h>

@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "rnn_layer.h"
@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "debug.h"
 
 static void increment_layer(layer *l, int steps)
 {
@@ -33,7 +35,9 @@ layer make_rnn_layer(int batch, int inputs, int outputs, int steps, ACTIVATION a
 {
     fprintf(stderr, "RNN Layer: %d inputs, %d outputs\n", inputs, outputs);
     batch = batch / steps;
-    layer l = {0};
+    // layer l = {0};
+    layer l;
+    memset(&l, 0, sizeof(layer));
     l.batch = batch;
     l.type = RNN;
     l.steps = steps;
@@ -73,15 +77,28 @@ layer make_rnn_layer(int batch, int inputs, int outputs, int steps, ACTIVATION a
     l.output_gpu = l.output_layer->output_gpu;
     l.delta_gpu = l.output_layer->delta_gpu;
 #ifdef CUDNN
-    (l.input_layer->dstTensorDesc)
+    set_memory_for_dnnl(
+        &l.input_layer->srcTensorDesc, &l.input_layer->dstTensorDesc, &l.input_layer->dsrcTensorDesc, &l.input_layer->ddstTensorDesc, 
+        &l.input_layer->normTensorDesc, &l.input_layer->weightDesc, &l.input_layer->dweightDesc, &l.input_layer->convDesc, &l.input_layer->fw_algo, &l.input_layer->bd_algo, &l.input_layer->bf_algo
+    );
+    set_memory_for_dnnl(
+        &l.self_layer->srcTensorDesc, &l.self_layer->dstTensorDesc, &l.self_layer->dsrcTensorDesc, &l.self_layer->ddstTensorDesc, 
+        &l.self_layer->normTensorDesc, &l.self_layer->weightDesc, &l.self_layer->dweightDesc, &l.self_layer->convDesc, &l.self_layer->fw_algo, &l.self_layer->bd_algo, &l.self_layer->bf_algo
+    );
+    set_memory_for_dnnl(
+        &l.output_layer->srcTensorDesc, &l.output_layer->dstTensorDesc, &l.output_layer->dsrcTensorDesc, &l.output_layer->ddstTensorDesc, 
+        &l.output_layer->normTensorDesc, &l.output_layer->weightDesc, &l.output_layer->dweightDesc, &l.output_layer->convDesc, &l.output_layer->fw_algo, &l.output_layer->bd_algo, &l.output_layer->bf_algo
+    );
+    
+    (*((dpct::dnnl::memory_desc_ext*)(l.input_layer->dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, batch, l.input_layer->out_c,
              l.input_layer->out_h, l.input_layer->out_w);
-    (l.self_layer->dstTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l.self_layer->dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, batch, l.self_layer->out_c,
              l.self_layer->out_h, l.self_layer->out_w);
-    (l.output_layer->dstTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l.output_layer->dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, batch, l.output_layer->out_c,
              l.output_layer->out_h, l.output_layer->out_w);
@@ -214,7 +231,9 @@ void update_rnn_layer_gpu(layer l, update_args a)
 
 void forward_rnn_layer_gpu(layer l, network net)
 {
-    network s = {0};
+    // network s = {0};
+    network s;
+    memset(&s,0,sizeof(network));
     s.train = net.train;
     int i;
     layer input_layer = *(l.input_layer);
@@ -253,7 +272,9 @@ void forward_rnn_layer_gpu(layer l, network net)
 
 void backward_rnn_layer_gpu(layer l, network net)
 {
-    network s = {0};
+    // network s = {0};
+    network s;
+    memset(&s,0,sizeof(network));
     s.train = net.train;
     int i;
     layer input_layer = *(l.input_layer);

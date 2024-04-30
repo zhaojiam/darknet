@@ -1,15 +1,18 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "convolutional_layer.h"
 #include "batchnorm_layer.h"
 #include "blas.h"
 #include <stdio.h>
+#include "debug.h"
 
 layer make_batchnorm_layer(int batch, int w, int h, int c)
 {
     fprintf(stderr, "Batch Normalization Layer: %d x %d x %d image\n", w,h,c);
-    layer l = {0};
+    // layer l = {0};
+    layer l;
+    memset(&l, 0, sizeof(layer));
     l.type = BATCHNORM;
     l.batch = batch;
     l.h = l.out_h = h;
@@ -70,11 +73,26 @@ layer make_batchnorm_layer(int batch, int w, int h, int c)
     DPCT1026:148: The call to cudnnCreateTensorDescriptor was removed because
     this functionality is redundant in SYCL.
     */
-    (l.dstTensorDesc)
+
+    set_memory_for_dnnl(
+        &l.srcTensorDesc,
+        &l.dstTensorDesc,
+        &l.dsrcTensorDesc,
+        &l.ddstTensorDesc,
+        &l.normTensorDesc,
+        &l.weightDesc,
+        &l.dweightDesc,
+        &l.convDesc,
+        &l.fw_algo,
+        &l.bd_algo,
+        &l.bf_algo
+    );
+
+    (*((dpct::dnnl::memory_desc_ext*)(l.dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, l.batch, l.out_c, l.out_h,
              l.out_w);
-    (l.normTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l.normTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, 1, l.out_c, 1, 1);
 
@@ -210,8 +228,8 @@ void forward_batchnorm_layer_gpu(layer l, network net)
         float zero = 0;
         cudnn_handle().async_batch_normalization_forward_training(
             dpct::dnnl::batch_normalization_mode::spatial, .00001, .01, one,
-            l.dstTensorDesc, l.x_gpu, zero, l.dstTensorDesc, l.output_gpu,
-            l.normTensorDesc, l.scales_gpu, l.biases_gpu, l.rolling_mean_gpu,
+            *((dpct::dnnl::memory_desc_ext*)(l.dstTensorDesc)), l.x_gpu, zero, *((dpct::dnnl::memory_desc_ext*)(l.dstTensorDesc)), l.output_gpu,
+            *((dpct::dnnl::memory_desc_ext*)(l.normTensorDesc)), l.scales_gpu, l.biases_gpu, l.rolling_mean_gpu,
             l.rolling_variance_gpu, l.mean_gpu, l.variance_gpu);
 #else
         fast_mean_gpu(l.output_gpu, l.batch, l.out_c, l.out_h*l.out_w, l.mean_gpu);
@@ -248,8 +266,8 @@ void backward_batchnorm_layer_gpu(layer l, network net)
     float zero = 0;
     cudnn_handle().async_batch_normalization_backward(
         dpct::dnnl::batch_normalization_mode::spatial, .00001, one,
-        l.dstTensorDesc, l.x_gpu, l.dstTensorDesc, l.delta_gpu, zero,
-        l.dstTensorDesc, l.x_norm_gpu, one, l.normTensorDesc, l.scales_gpu, one,
+        *((dpct::dnnl::memory_desc_ext*)(l.dstTensorDesc)), l.x_gpu, *((dpct::dnnl::memory_desc_ext*)(l.dstTensorDesc)), l.delta_gpu, zero,
+        *((dpct::dnnl::memory_desc_ext*)(l.dstTensorDesc)), l.x_norm_gpu, one, *((dpct::dnnl::memory_desc_ext*)(l.normTensorDesc)), l.scales_gpu, one,
         l.scale_updates_gpu, l.bias_updates_gpu, l.mean_gpu, l.variance_gpu);
     copy_gpu(l.outputs*l.batch, l.x_norm_gpu, 1, l.delta_gpu, 1);
 #else

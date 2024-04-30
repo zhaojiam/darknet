@@ -1,8 +1,8 @@
-int gpu_index = 0;
+extern "C" int gpu_index = 0;
 
 #ifdef GPU
 
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "darknet_cuda.h"

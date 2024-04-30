@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "lstm_layer.h"
@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "debug.h"
 
 static void increment_layer(layer *l, int steps)
 {
@@ -33,7 +35,10 @@ layer make_lstm_layer(int batch, int inputs, int outputs, int steps, int batch_n
 {
     fprintf(stderr, "LSTM Layer: %d inputs, %d outputs\n", inputs, outputs);
     batch = batch / steps;
-    layer l = { 0 };
+    // layer l = { 0 };
+    layer l;
+    memset(&l, 0, sizeof(layer));
+
     l.batch = batch;
     l.type = LSTM;
     l.steps = steps;
@@ -128,36 +133,69 @@ layer make_lstm_layer(int batch, int inputs, int outputs, int steps, int batch_n
     l.dc_gpu = cuda_make_array(0, batch*outputs);
     l.dh_gpu = cuda_make_array(0, batch*outputs);
 #ifdef CUDNN
-        (l.wf->dstTensorDesc)
+        set_memory_for_dnnl(
+            &l.wf->srcTensorDesc, &l.wf->dstTensorDesc, &l.wf->dsrcTensorDesc, &l.wf->ddstTensorDesc, 
+            &l.wf->normTensorDesc, &l.wf->weightDesc, &l.wf->dweightDesc, &l.wf->convDesc, &l.wf->fw_algo, &l.wf->bd_algo, &l.wf->bf_algo
+        );
+        set_memory_for_dnnl(
+            &l.wi->srcTensorDesc, &l.wi->dstTensorDesc, &l.wi->dsrcTensorDesc, &l.wi->ddstTensorDesc, 
+            &l.wi->normTensorDesc, &l.wi->weightDesc, &l.wi->dweightDesc, &l.wi->convDesc, &l.wi->fw_algo, &l.wi->bd_algo, &l.wi->bf_algo
+        );
+        set_memory_for_dnnl(
+            &l.wg->srcTensorDesc, &l.wg->dstTensorDesc, &l.wg->dsrcTensorDesc, &l.wg->ddstTensorDesc, 
+            &l.wg->normTensorDesc, &l.wg->weightDesc, &l.wg->dweightDesc, &l.wg->convDesc, &l.wg->fw_algo, &l.wg->bd_algo, &l.wg->bf_algo
+        );
+        set_memory_for_dnnl(
+            &l.wo->srcTensorDesc, &l.wo->dstTensorDesc, &l.wo->dsrcTensorDesc, &l.wo->ddstTensorDesc, 
+            &l.wo->normTensorDesc, &l.wo->weightDesc, &l.wo->dweightDesc, &l.wo->convDesc, &l.wo->fw_algo, &l.wo->bd_algo, &l.wo->bf_algo
+        );
+        set_memory_for_dnnl(
+            &l.uf->srcTensorDesc, &l.uf->dstTensorDesc, &l.uf->dsrcTensorDesc, &l.uf->ddstTensorDesc, 
+            &l.uf->normTensorDesc, &l.uf->weightDesc, &l.uf->dweightDesc, &l.uf->convDesc, &l.uf->fw_algo, &l.uf->bd_algo, &l.uf->bf_algo
+        );
+        set_memory_for_dnnl(
+            &l.ui->srcTensorDesc, &l.ui->dstTensorDesc, &l.ui->dsrcTensorDesc, &l.ui->ddstTensorDesc, 
+            &l.ui->normTensorDesc, &l.ui->weightDesc, &l.ui->dweightDesc, &l.ui->convDesc, &l.ui->fw_algo, &l.ui->bd_algo, &l.ui->bf_algo
+        );
+        set_memory_for_dnnl(
+            &l.ug->srcTensorDesc, &l.ug->dstTensorDesc, &l.ug->dsrcTensorDesc, &l.ug->ddstTensorDesc, 
+            &l.ug->normTensorDesc, &l.ug->weightDesc, &l.ug->dweightDesc, &l.ug->convDesc, &l.ug->fw_algo, &l.ug->bd_algo, &l.ug->bf_algo
+        );
+        set_memory_for_dnnl(
+            &l.uo->srcTensorDesc, &l.uo->dstTensorDesc, &l.uo->dsrcTensorDesc, &l.uo->ddstTensorDesc, 
+            &l.uo->normTensorDesc, &l.uo->weightDesc, &l.uo->dweightDesc, &l.uo->convDesc, &l.uo->fw_algo, &l.uo->bd_algo, &l.uo->bf_algo
+        );
+
+        (*((dpct::dnnl::memory_desc_ext*)(l.wf->dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, batch, l.wf->out_c,
                  l.wf->out_h, l.wf->out_w);
-        (l.wi->dstTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.wi->dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, batch, l.wi->out_c,
                  l.wi->out_h, l.wi->out_w);
-        (l.wg->dstTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.wg->dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, batch, l.wg->out_c,
                  l.wg->out_h, l.wg->out_w);
-        (l.wo->dstTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.wo->dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, batch, l.wo->out_c,
                  l.wo->out_h, l.wo->out_w);
 
-        (l.uf->dstTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.uf->dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, batch, l.uf->out_c,
                  l.uf->out_h, l.uf->out_w);
-        (l.ui->dstTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.ui->dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, batch, l.ui->out_c,
                  l.ui->out_h, l.ui->out_w);
-        (l.ug->dstTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.ug->dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, batch, l.ug->out_c,
                  l.ug->out_h, l.ug->out_w);
-        (l.uo->dstTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.uo->dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, batch, l.uo->out_c,
                  l.uo->out_h, l.uo->out_w);
@@ -182,7 +220,9 @@ void update_lstm_layer(layer l, update_args a)
 
 void forward_lstm_layer(layer l, network state)
 {
-    network s = { 0 };
+    // network s = { 0 };
+    network s;
+    memset(&s, 0, sizeof(network));
     s.train = state.train;
     int i;
     layer wf = *(l.wf);
@@ -268,7 +308,10 @@ void forward_lstm_layer(layer l, network state)
 
 void backward_lstm_layer(layer l, network state)
 {
-    network s = { 0 };
+    // network s = { 0 };
+    network s;
+    memset(&s, 0, sizeof(network));
+
     s.train = state.train;
     int i;
     layer wf = *(l.wf);
@@ -424,7 +467,9 @@ void update_lstm_layer_gpu(layer l, update_args a)
 
 void forward_lstm_layer_gpu(layer l, network state)
 {
-    network s = { 0 };
+    // network s = { 0 };
+    network s;
+    memset(&s, 0, sizeof(network));
     s.train = state.train;
     int i;
     layer wf = *(l.wf);
@@ -510,7 +555,9 @@ void forward_lstm_layer_gpu(layer l, network state)
 
 void backward_lstm_layer_gpu(layer l, network state)
 {
-    network s = { 0 };
+    // network s = { 0 };
+    network s;
+    memset(&s, 0, sizeof(network));
     s.train = state.train;
     int i;
     layer wf = *(l.wf);

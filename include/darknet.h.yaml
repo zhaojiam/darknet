@@ -4,7 +4,7 @@ Replacements:
   - FilePath:        '/export/users/zhaojiam/src/darknet_dev/include/darknet.h'
     Offset:          40
     Length:          0
-    ReplacementText: "#include <dpct/dnnl_utils.hpp>\n#include <sycl/sycl.hpp>\n#include <dpct/dpct.hpp>\n"
+    ReplacementText: "//#include <dpct/dnnl_utils.hpp>\n#include <sycl/sycl.hpp>\n#include <dpct/dpct.hpp>\n"
     ConstantFlag:    ''
     ConstantOffset:  0
     InitStr:         ''

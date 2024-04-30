@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "deconvolutional_layer.h"
@@ -12,6 +12,8 @@
 
 #include <stdio.h>
 #include <time.h>
+
+#include "debug.h"
 
 
 static size_t get_workspace_size(layer l){
@@ -38,7 +40,9 @@ void bilinear_init(layer l)
 layer make_deconvolutional_layer(int batch, int h, int w, int c, int n, int size, int stride, int padding, ACTIVATION activation, int batch_normalize, int adam)
 {
     int i;
-    layer l = {0};
+    layer l;
+    memset(&l, 0, sizeof(layer));
+
     l.type = DECONVOLUTIONAL;
 
     l.h = h;
@@ -153,6 +157,19 @@ layer make_deconvolutional_layer(int batch, int h, int w, int c, int n, int size
         }
     }
     #ifdef CUDNN
+        set_memory_for_dnnl(
+            &l.srcTensorDesc,
+            &l.dstTensorDesc,
+            &l.dsrcTensorDesc,
+            &l.ddstTensorDesc,
+            &l.normTensorDesc,
+            &l.weightDesc,
+            &l.dweightDesc,
+            &l.convDesc,
+            &l.fw_algo,
+            &l.bd_algo,
+            &l.bf_algo
+        );
         /*
         DPCT1026:149: The call to cudnnCreateTensorDescriptor was removed
         because this functionality is redundant in SYCL.
@@ -161,11 +178,11 @@ layer make_deconvolutional_layer(int batch, int h, int w, int c, int n, int size
         DPCT1026:150: The call to cudnnCreateTensorDescriptor was removed
         because this functionality is redundant in SYCL.
         */
-        (l.dstTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, l.batch, l.out_c, l.out_h,
                  l.out_w);
-        (l.normTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l.normTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, 1, l.out_c, 1, 1);
 #endif
@@ -229,11 +246,24 @@ void resize_deconvolutional_layer(layer *l, int h, int w)
         l->x_norm_gpu = cuda_make_array(l->output, l->batch*l->outputs);
     }
     #ifdef CUDNN
-        (l->dstTensorDesc)
+        set_memory_for_dnnl(
+            &l->srcTensorDesc,
+            &l->dstTensorDesc,
+            &l->dsrcTensorDesc,
+            &l->ddstTensorDesc,
+            &l->normTensorDesc,
+            &l->weightDesc,
+            &l->dweightDesc,
+            &l->convDesc,
+            &l->fw_algo,
+            &l->bd_algo,
+            &l->bf_algo
+        );
+        (*((dpct::dnnl::memory_desc_ext*)(l->dstTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, l->batch, l->out_c, l->out_h,
                  l->out_w);
-        (l->normTensorDesc)
+        (*((dpct::dnnl::memory_desc_ext*)(l->normTensorDesc)))
             .set(dpct::dnnl::memory_format_tag::nchw,
                  dpct::library_data_t::real_float, 1, l->out_c, 1, 1);
 #endif

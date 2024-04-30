@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "box.h"
@@ -93,7 +93,9 @@ void do_nms_sort(detection *dets, int total, int classes, float thresh)
 
 box float_to_box(float *f, int stride)
 {
-    box b = {0};
+    // box b = {0};
+    box b;
+    memset(&b, 0, sizeof(box));
     b.x = f[0];
     b.y = f[1*stride];
     b.w = f[2*stride];

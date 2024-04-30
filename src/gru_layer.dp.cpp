@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include <sycl/sycl.hpp>
 #include <dpct/dpct.hpp>
 #include "gru_layer.h"
@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "debug.h"
 
 static void increment_layer(layer *l, int steps)
 {
@@ -33,7 +35,10 @@ layer make_gru_layer(int batch, int inputs, int outputs, int steps, int batch_no
 {
     fprintf(stderr, "GRU Layer: %d inputs, %d outputs\n", inputs, outputs);
     batch = batch / steps;
-    layer l = {0};
+    // layer l = {0};
+    layer l;
+    memset(&l, 0, sizeof(layer));
+
     l.batch = batch;
     l.type = GRU;
     l.steps = steps;
@@ -104,27 +109,53 @@ layer make_gru_layer(int batch, int inputs, int outputs, int steps, int batch_no
     l.h_gpu = cuda_make_array(0, batch*outputs);
 
 #ifdef CUDNN
-    (l.uz->dstTensorDesc)
+
+    set_memory_for_dnnl(
+        &l.uz->srcTensorDesc, &l.uz->dstTensorDesc, &l.uz->dsrcTensorDesc, &l.uz->ddstTensorDesc, 
+        &l.uz->normTensorDesc, &l.uz->weightDesc, &l.uz->dweightDesc, &l.uz->convDesc, &l.uz->fw_algo, &l.uz->bd_algo, &l.uz->bf_algo
+    );
+    set_memory_for_dnnl(
+        &l.uh->srcTensorDesc, &l.uh->dstTensorDesc, &l.uh->dsrcTensorDesc, &l.uh->ddstTensorDesc, 
+        &l.uh->normTensorDesc, &l.uh->weightDesc, &l.uh->dweightDesc, &l.uh->convDesc, &l.uh->fw_algo, &l.uh->bd_algo, &l.uh->bf_algo
+    );
+    set_memory_for_dnnl(
+        &l.ur->srcTensorDesc, &l.ur->dstTensorDesc, &l.ur->dsrcTensorDesc, &l.ur->ddstTensorDesc, 
+        &l.ur->normTensorDesc, &l.ur->weightDesc, &l.ur->dweightDesc, &l.ur->convDesc, &l.ur->fw_algo, &l.ur->bd_algo, &l.ur->bf_algo
+    );
+    set_memory_for_dnnl(
+        &l.wz->srcTensorDesc, &l.wz->dstTensorDesc, &l.wz->dsrcTensorDesc, &l.wz->ddstTensorDesc, 
+        &l.wz->normTensorDesc, &l.wz->weightDesc, &l.wz->dweightDesc, &l.wz->convDesc, &l.wz->fw_algo, &l.wz->bd_algo, &l.wz->bf_algo
+    );
+    set_memory_for_dnnl(
+        &l.wh->srcTensorDesc, &l.wh->dstTensorDesc, &l.wh->dsrcTensorDesc, &l.wh->ddstTensorDesc, 
+        &l.wh->normTensorDesc, &l.wh->weightDesc, &l.wh->dweightDesc, &l.wh->convDesc, &l.wh->fw_algo, &l.wh->bd_algo, &l.wh->bf_algo
+    );
+    set_memory_for_dnnl(
+        &l.wr->srcTensorDesc, &l.wr->dstTensorDesc, &l.wr->dsrcTensorDesc, &l.wr->ddstTensorDesc, 
+        &l.wr->normTensorDesc, &l.wr->weightDesc, &l.wr->dweightDesc, &l.wr->convDesc, &l.wr->fw_algo, &l.wr->bd_algo, &l.wr->bf_algo
+    );
+
+    (*((dpct::dnnl::memory_desc_ext*)(l.uz->dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, batch, l.uz->out_c, l.uz->out_h,
              l.uz->out_w);
-    (l.uh->dstTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l.uh->dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, batch, l.uh->out_c, l.uh->out_h,
              l.uh->out_w);
-    (l.ur->dstTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l.ur->dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, batch, l.ur->out_c, l.ur->out_h,
              l.ur->out_w);
-    (l.wz->dstTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l.wz->dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, batch, l.wz->out_c, l.wz->out_h,
              l.wz->out_w);
-    (l.wh->dstTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l.wh->dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, batch, l.wh->out_c, l.wh->out_h,
              l.wh->out_w);
-    (l.wr->dstTensorDesc)
+    (*((dpct::dnnl::memory_desc_ext*)(l.wr->dstTensorDesc)))
         .set(dpct::dnnl::memory_format_tag::nchw,
              dpct::library_data_t::real_float, batch, l.wr->out_c, l.wr->out_h,
              l.wr->out_w);
@@ -246,7 +277,9 @@ void update_gru_layer_gpu(layer l, update_args a)
 
 void forward_gru_layer_gpu(layer l, network net)
 {
-    network s = {0};
+    // network s = {0};
+    network s;
+    memset(&s, 0, sizeof(network));
     s.train = net.train;
     int i;
     layer uz = *(l.uz);
@@ -320,7 +353,9 @@ void forward_gru_layer_gpu(layer l, network net)
 
 void backward_gru_layer_gpu(layer l, network net)
 {
-    network s = {0};
+    // network s = {0};
+    network s;
+    memset(&s, 0, sizeof(network));
     s.train = net.train;
     int i;
     layer uz = *(l.uz);

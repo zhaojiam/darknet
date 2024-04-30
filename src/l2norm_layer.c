@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "l2norm_layer.h"
 #include "activations.h"
 #include "blas.h"

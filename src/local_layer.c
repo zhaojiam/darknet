@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "local_layer.h"
 #include "utils.h"
 #include "im2col.h"

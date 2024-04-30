@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "softmax_layer.h"
 #include "blas.h"
 #include "darknet_cuda.h"

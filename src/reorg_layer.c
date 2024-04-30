@@ -1,4 +1,4 @@
-#include <dpct/dnnl_utils.hpp>
+//#include <dpct/dnnl_utils.hpp>
 #include "reorg_layer.h"
 #include "darknet_cuda.h"
 #include "blas.h"
