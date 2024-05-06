@@ -14,6 +14,11 @@
 
 #define TWO_PI 6.2831853071795864769252866f
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 double what_time_is_it_now();
 void shuffle(void *arr, size_t n, size_t size);
 void sorta_shuffle(void *arr, size_t n, size_t size, size_t sections);
@@ -48,6 +53,11 @@ float **one_hot_encode(float *a, int n, int k);
 float sec(clock_t clocks);
 void print_statistics(float *a, int n);
 int int_index(int *a, int val, int n);
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

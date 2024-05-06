@@ -5,11 +5,9 @@
 #include <dpct/blas_utils.hpp>
 #include <assert.h>
 
-extern "C" {
 #include "blas.h"
 #include "darknet_cuda.h"
 #include "utils.h"
-}
 
 void scale_bias_kernel(float *output, float *biases, int n, int size,
                        const sycl::nd_item<3> &item_ct1)

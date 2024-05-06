@@ -4,10 +4,8 @@
 #include <dpct/rng_utils.hpp>
 #include <dpct/blas_utils.hpp>
 
-extern "C" {
 #include "maxpool_layer.h"
 #include "darknet_cuda.h"
-}
 
 void forward_maxpool_layer_kernel(int n, int in_h, int in_w, int in_c, int stride, int size, int pad, float *input, float *output, int *indexes,
                                   const sycl::nd_item<3> &item_ct1)

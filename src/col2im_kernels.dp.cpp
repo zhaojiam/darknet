@@ -4,10 +4,8 @@
 #include <dpct/rng_utils.hpp>
 #include <dpct/blas_utils.hpp>
 
-extern "C" {
 #include "col2im.h"
 #include "darknet_cuda.h"
-}
 
 // src: https://github.com/BVLC/caffe/blob/master/src/caffe/util/im2col.cu
 // You may also want to read: https://github.com/BVLC/caffe/blob/master/LICENSE

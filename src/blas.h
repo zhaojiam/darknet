@@ -1,6 +1,11 @@
 #ifndef BLAS_H
 #define BLAS_H
 #include "darknet.h"
+#include "darknet_cuda.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void flatten(float *x, int size, int layers, int batch, int forward);
 void pm(int M, int N, float *A);
@@ -45,7 +50,6 @@ void softmax_cpu(float *input, int n, int batch, int batch_offset, int groups, i
 void upsample_cpu(float *in, int w, int h, int c, int batch, int stride, int forward, float scale, float *out);
 
 #ifdef GPU
-#include "darknet_cuda.h"
 #include "tree.h"
 
 void axpy_gpu(int N, float ALPHA, float * X, int INCX, float * Y, int INCY);
@@ -102,4 +106,9 @@ void softmax_tree(float *input, int spatial, int batch, int stride, float temp, 
 void upsample_gpu(float *in, int w, int h, int c, int batch, int stride, int forward, float scale, float *out);
 
 #endif
+
+#ifdef __cplusplus
+}
+#endif
+
 #endif

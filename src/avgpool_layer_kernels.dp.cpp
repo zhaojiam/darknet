@@ -4,10 +4,8 @@
 #include <dpct/rng_utils.hpp>
 #include <dpct/blas_utils.hpp>
 
-extern "C" {
 #include "avgpool_layer.h"
 #include "darknet_cuda.h"
-}
 
 void forward_avgpool_layer_kernel(int n, int w, int h, int c, float *input, float *output,
                                   const sycl::nd_item<3> &item_ct1)

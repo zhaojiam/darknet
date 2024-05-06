@@ -4,10 +4,8 @@
 #include <dpct/rng_utils.hpp>
 #include <dpct/blas_utils.hpp>
 
-extern "C" {
 #include "activations.h"
 #include "darknet_cuda.h"
-}
 
 
 float lhtan_activate_kernel(float x)

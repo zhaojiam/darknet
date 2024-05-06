@@ -5,7 +5,6 @@
 #include <dpct/rng_utils.hpp>
 #include <dpct/blas_utils.hpp>
 
-extern "C" {
 #include "convolutional_layer.h"
 #include "batchnorm_layer.h"
 #include "gemm.h"
@@ -14,7 +13,6 @@ extern "C" {
 #include "col2im.h"
 #include "utils.h"
 #include "darknet_cuda.h"
-}
 
 void binarize_kernel(float *x, int n, float *binary,
                      const sycl::nd_item<3> &item_ct1)
@@ -146,9 +144,9 @@ void forward_convolutional_layer_gpu(convolutional_layer l, network net)
     float one = 1;
     cudnn_handle().async_convolution_forward(
         *((dpct::dnnl::convolution_desc*)l.convDesc), 
-        *((dnnl::algorithm)l.fw_algo), one, 
+        *((dnnl::algorithm*)l.fw_algo), one, 
         *((dpct::dnnl::memory_desc_ext*)l.srcTensorDesc), net.input_gpu,
-        *((dpct::dnnl::memory_desc_ext*)*((dpct::dnnl::memory_desc_ext*)(l.weightDesc))), l.weights_gpu, one, 
+        *((dpct::dnnl::memory_desc_ext*)l.weightDesc), l.weights_gpu, one, 
         *((dpct::dnnl::memory_desc_ext*)l.dstTensorDesc), l.output_gpu);
 
 #else
@@ -266,7 +264,7 @@ void backward_convolutional_layer_gpu(convolutional_layer l, network net)
     float one = 1;
     cudnn_handle().async_convolution_backward_weight(
         *((dpct::dnnl::convolution_desc*)l.convDesc), 
-        *((dnnl::algorithm)*((dnnl::algorithm*)(l.bf_algo))), one, 
+        *((dnnl::algorithm*)(l.bf_algo)), one, 
         *((dpct::dnnl::memory_desc_ext*)l.srcTensorDesc), net.input_gpu,
         *((dpct::dnnl::memory_desc_ext*)l.ddstTensorDesc), l.delta_gpu, one, 
         *((dpct::dnnl::memory_desc_ext*)l.dweightDesc), l.weight_updates_gpu);

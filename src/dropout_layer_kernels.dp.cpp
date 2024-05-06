@@ -4,11 +4,9 @@
 #include <dpct/rng_utils.hpp>
 #include <dpct/blas_utils.hpp>
 
-extern "C" {
 #include "dropout_layer.h"
 #include "darknet_cuda.h"
 #include "utils.h"
-}
 
 void yoloswag420blazeit360noscope(float *input, int size, float *rand, float prob, float scale,
                                   const sycl::nd_item<3> &item_ct1)

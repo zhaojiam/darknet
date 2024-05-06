@@ -24,6 +24,7 @@ void sync_current_device() {
     dpct::get_current_device().queues_wait_and_throw();
 }
 
+
 void set_memory_for_dnnl(
     void **srcTensorDesc, void **dstTensorDesc,   // dpct::dnnl::memory_desc_ext
     void **dsrcTensorDesc, void **ddstTensorDesc, 
@@ -33,6 +34,7 @@ void set_memory_for_dnnl(
     void **fw_algo, void **bd_algo, void **bf_algo // dnnl::algorithm
     ) {
     
+    // TODO: new...
     *srcTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
     *dstTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
     *dsrcTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));

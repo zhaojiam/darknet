@@ -4,12 +4,10 @@
 #include <dpct/rng_utils.hpp>
 #include <dpct/blas_utils.hpp>
 
-extern "C" {
 #include "crop_layer.h"
 #include "utils.h"
 #include "darknet_cuda.h"
 #include "image.h"
-}
 
 float get_pixel_kernel(float *image, int w, int h, int x, int y, int c)
 {

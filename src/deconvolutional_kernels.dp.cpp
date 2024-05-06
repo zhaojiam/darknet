@@ -4,7 +4,6 @@
 #include <dpct/rng_utils.hpp>
 #include <dpct/blas_utils.hpp>
 
-extern "C" {
 #include "convolutional_layer.h"
 #include "deconvolutional_layer.h"
 #include "batchnorm_layer.h"
@@ -14,7 +13,6 @@ extern "C" {
 #include "col2im.h"
 #include "utils.h"
 #include "darknet_cuda.h"
-}
 
 extern "C" void forward_deconvolutional_layer_gpu(layer l, network net)
 {
