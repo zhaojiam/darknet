@@ -24,12 +24,12 @@ EXEC=darknet
 OBJDIR=./obj/
 
 # SYCL: Use intel clang and clang++ to compile.
-CC=clang
-CPP=clang++
+CC=gcc
+CPP=icpx
 AR=ar
 ARFLAGS=rcs
 OPTS=-Ofast
-LDFLAGS= -lm -pthread -lonemkl
+LDFLAGS= -lm -pthread -lmkl_sycl -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core -lOpenCL -lpthread -ldl
 COMMON= -Iinclude/ -Isrc/
 # COMMON+= -I/nfs/shm/proj/icl/cmplrarch/deploy_syclos/llorgsyclngefi2linux/20240415_160000/build/linux_qa_release/include
 CFLAGS=-Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC
@@ -57,7 +57,7 @@ ifeq ($(GPU), 1)
 COMMON+= -DGPU
 CFLAGS+= -DGPU
 # LDFLAGS+= -L/usr/local/cuda/lib64 -lcuda -lcudart -lcublas -lcurand
-SYCLFLAGS+=-fsycl-targets=nvptx64-nvidia-cuda 
+# SYCLFLAGS+=-fsycl-targets=nvptx64-nvidia-cuda 
 endif
 
 ifeq ($(CUDNN), 1) 
