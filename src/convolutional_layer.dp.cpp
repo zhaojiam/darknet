@@ -12,6 +12,8 @@
 #include <time.h>
 #include "debug.h"
 
+#define CUDNN_MAJOR 7
+
 #ifdef AI2
 #include "xnor_layer.h"
 #endif

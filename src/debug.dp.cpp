@@ -35,17 +35,31 @@ void set_memory_for_dnnl(
     ) {
     
     // TODO: new...
-    *srcTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
-    *dstTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
-    *dsrcTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
-    *ddstTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
-    *normTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
-    *weightDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
-    *dweightDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
+    // *srcTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
+    // *dstTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
+    // *dsrcTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
+    // *ddstTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
+    // *normTensorDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
+    // *weightDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
+    // *dweightDesc = malloc(sizeof(dpct::dnnl::memory_desc_ext));
 
-    *convDesc = malloc(sizeof(dpct::dnnl::convolution_desc));
+    // *convDesc = malloc(sizeof(dpct::dnnl::convolution_desc));
 
-    *fw_algo = malloc(sizeof(dnnl::algorithm));
-    *bd_algo = malloc(sizeof(dnnl::algorithm));
-    *bf_algo = malloc(sizeof(dnnl::algorithm));
+    // *fw_algo = malloc(sizeof(dnnl::algorithm));
+    // *bd_algo = malloc(sizeof(dnnl::algorithm));
+    // *bf_algo = malloc(sizeof(dnnl::algorithm));
+
+    *srcTensorDesc = new dpct::dnnl::memory_desc_ext;
+    *dstTensorDesc = new dpct::dnnl::memory_desc_ext;
+    *dsrcTensorDesc = new dpct::dnnl::memory_desc_ext;
+    *ddstTensorDesc = new dpct::dnnl::memory_desc_ext;
+    *normTensorDesc = new dpct::dnnl::memory_desc_ext;
+    *weightDesc = new dpct::dnnl::memory_desc_ext;
+    *dweightDesc = new dpct::dnnl::memory_desc_ext;
+
+    *convDesc = new dpct::dnnl::convolution_desc;
+
+    *fw_algo = new dnnl::algorithm;
+    *bd_algo = new dnnl::algorithm;
+    *bf_algo = new dnnl::algorithm;
 }
